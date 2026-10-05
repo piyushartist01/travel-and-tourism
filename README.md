@@ -1,4 +1,4 @@
-# ✈️ TravelGo — Tour & Travel Website
+# TravelGo - Tour & Travel Website
 
 > A beautiful, mobile-responsive Travel & Tourism website built with pure HTML, CSS, and JavaScript.
 
@@ -6,84 +6,86 @@
 
 ---
 
-## 🌐 Live Preview
+## Live Preview
 
 Visit the site by opening `index.html` in your browser, or host it on **GitHub Pages**.
 
 ---
 
-## 📋 Table of Contents
+## Table of Contents
 
-- [Features](#-features)
-- [Pages](#-pages)
-- [Tech Stack](#-tech-stack)
-- [Getting Started](#-getting-started)
-- [Project Structure](#-project-structure)
-- [Screenshots](#-screenshots)
-- [Contributing](#-contributing)
-
----
-
-## ✨ Features
-
-- 🎠 **Auto-sliding Hero Banner** — Smooth image carousel with 4 destinations
-- 🔍 **Destination Search** — Search bar with live navigation to destination page
-- ❤️ **Wishlist System** — Add/remove destinations using `localStorage` (persists on refresh)
-- 📅 **Trip Planner** — Select travel date, duration, and number of travellers
-- 🗺️ **8 Destinations** — Manali, Jaipur, Agra, Goa, J&K, Kerala, Ladakh, Andaman
-- 📦 **Dynamic Package Pages** — Cards update based on chosen destination
-- 👤 **User Profile Page** — Login / Signup forms with wishlist count display
-- 📱 **Mobile Responsive** — Hamburger menu, fluid grids, touch-friendly buttons
-- 🌟 **Smooth Animations** — Hover effects, transitions, micro-interactions
-- 🔔 **Toast Notifications** — Non-intrusive alerts for wishlist actions
+- [Features](#features)
+- [Pages](#pages)
+- [Tech Stack](#tech-stack)
+- [Getting Started](#getting-started)
+- [Project Structure](#project-structure)
+- [Key Features Explained](#key-features-explained)
+- [Contributing](#contributing)
+- [License](#license)
 
 ---
 
-## 📄 Pages
+## Features
+
+- **Auto-sliding Hero Banner** — Smooth image carousel with 4 destinations.
+- **Destination Search** — Search bar with live navigation to destination page.
+- **Wishlist System** — Add/remove destinations using `localStorage` (persists on refresh).
+- **Trip Planner** — Select travel date, duration, and number of travellers.
+- **8 Destinations** — Manali, Jaipur, Agra, Goa, J&K, Kerala, Ladakh, Andaman.
+- **Dynamic Package Pages** — Cards update based on chosen destination.
+- **User Profile Dashboard** — Tabbed profile layout, login modal, and wishlist overview.
+- **Mobile Responsive** — Hamburger menu, fluid grids, touch-friendly components.
+- **Premium UI/UX** — Glassmorphic components, floating elements, smooth animations.
+- **Dynamic Island Nav** — A unified, floating navigation bar used across all pages.
+- **Toast Notifications** — Non-intrusive alerts for interactions.
+
+---
+
+## Pages
 
 | Page | File | Description |
 |------|------|-------------|
-| Home | `index.html` | Hero slider, popular destinations, trip planner |
-| Destinations | `destination.html` | All 8 destination cards with wishlist toggle |
-| Packages | `package.html` | Detailed package view with booking form |
-| Wishlist | `wishlist.html` | Saved destinations with search & remove |
-| Profile | `login.html` | Login/signup forms + profile overview |
+| **Home** | `index.html` | Hero slider, popular destinations, trip planner. |
+| **Destinations** | `destination.html` | All 8 destination cards with wishlist toggle. |
+| **Packages** | `package.html` | Detailed package view with booking form. |
+| **Wishlist** | `wishlist.html` | Saved destinations with search & remove. |
+| **Profile** | `login.html` | MakeMyTrip-style profile dashboard + login modal. |
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Technology | Usage |
 |------------|-------|
-| **HTML5** | Semantic page structure |
-| **CSS3** | Flexbox, Grid, animations, media queries |
-| **Vanilla JavaScript** | DOM manipulation, localStorage, event handling |
-| **Font Awesome 6** | Icons (plane, heart, location, etc.) |
-| **Unsplash / Local** | High-quality destination images |
+| **HTML5** | Semantic page structure. |
+| **CSS3** | Flexbox, Grid, glassmorphism, animations, media queries. |
+| **Vanilla JavaScript** | DOM manipulation, localStorage, state management. |
+| **FontAwesome 6** | Clean vector icons used universally. |
+| **Unsplash / Local** | High-quality destination imagery. |
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
-No build tools or dependencies required!
+No build tools or dependencies are required. This is a vanilla front-end application.
 
 ### Option 1: Open Locally
 ```bash
 git clone https://github.com/piyushartist01/travel-and-tourism.git
 cd travel-and-tourism
-# Open index.html in any browser
+# Open index.html in any modern browser
 ```
 
 ### Option 2: GitHub Pages
-1. Go to your repo → **Settings → Pages**
-2. Set source to `main` branch, root folder
-3. Your site will be live at `https://piyushartist01.github.io/travel-and-tourism/`
+1. Go to your repository → **Settings → Pages**.
+2. Set the source to the `master` branch and the root folder.
+3. Your site will be published at `https://piyushartist01.github.io/travel-and-tourism/`.
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
-```
+```text
 travel-and-tourism/
 │
 ├── index.html          # Home page
@@ -92,73 +94,62 @@ travel-and-tourism/
 ├── wishlist.html       # Saved destinations
 ├── login.html          # Profile / Login / Signup
 │
+├── global.css          # Shared global styles (Nav, Toasts, Typography)
 ├── index.css           # Home page styles
 ├── destination.css     # Destinations styles
 ├── package.css         # Package page styles
 ├── wishlist.css        # Wishlist page styles
 ├── login.css           # Profile/login styles
-├── style.css           # Shared/global styles
 │
-├── index.js            # Home page logic
-├── destination.js      # Destination toggle + routing
-├── package.js          # Package data + booking logic
+├── index.js            # Home page logic + global toast
+├── destination.js      # Destination filtering + routing
+├── package.js          # Package data mapping + booking logic
 ├── wishlist.js         # Wishlist display + search
-├── login.js            # Profile + auth logic
+├── login.js            # Profile dashboard + auth logic
 │
-├── banner copy.png         # Hero image
-├── udaipur banner.png      # Udaipur hero
-├── shimla banner.png       # Shimla hero
-├── jaipur copy.png         # Jaipur card
-├── goa copy.png            # Goa card
-├── kolkata copy.png        # Kolkata card
-├── manali copy.png         # Manali card
-├── Agra copy.jpeg          # Agra card
-├── tamilnadu copy.png      # Madurai card
-├── udaipur copy.png        # Udaipur card
-├── coverpage image.jpeg    # Destinations background
-└── POPULAR BG copy.png     # Popular section background
+└── [Images...]         # Various local hero and card images
 ```
 
 ---
 
-## 🗃️ Key Features Explained
+## Key Features Explained
 
-### 🔒 localStorage Wishlist
-All wishlist data is stored in the browser's `localStorage` under the key `"wishlist"` as a JSON array:
+### Browser Storage (localStorage)
+All wishlist data and authentication state are stored in the browser's `localStorage` to ensure persistence across sessions.
 ```js
 // Add to wishlist
-localStorage.setItem("wishlist", JSON.stringify(["Goa", "Manali"]));
+localStorage.setItem("travelWishlist", JSON.stringify(["Goa", "Manali"]));
 
-// Read wishlist
-JSON.parse(localStorage.getItem("wishlist")) || []
+// Check Login State
+localStorage.getItem("isLoggedIn"); // returns "true" or "false"
 ```
 
-### 🗺️ Dynamic Package Pages
-Clicking any destination card on `destination.html` routes to `package.html?place=manali` and the package page dynamically loads the correct data from a built-in `destinations` object in `package.js`.
+### Dynamic Routing
+Clicking any destination card on `destination.html` routes to `package.html?place=place_name`. The package page dynamically loads the correct hero, description, and images from a data object in `package.js`.
 
-### 📱 Mobile Navigation
-A hamburger (☰) menu is shown on screens ≤ 768px. Clicking it toggles the nav links with a smooth slide animation.
-
----
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature/your-feature`
-3. Commit your changes: `git commit -m "Add your feature"`
-4. Push to branch: `git push origin feature/your-feature`
-5. Open a Pull Request
+### Unified Design System
+The application utilizes `global.css` to enforce a strict design language. The floating "Dynamic Island" navbar, toast popups, and glassmorphic wishlist buttons ensure visual consistency across all five main pages.
 
 ---
 
-## 📜 License
+## Contributing
+
+1. Fork the repository.
+2. Create a feature branch: `git checkout -b feature/your-feature`.
+3. Commit your changes: `git commit -m "Add your feature"`.
+4. Push to the branch: `git push origin feature/your-feature`.
+5. Open a Pull Request.
+
+---
+
+## License
 
 This project is open-source and available under the [MIT License](LICENSE).
 
 ---
 
-## 👨‍💻 Author
+## Author
 
 **Piyush** — [@piyushartist01](https://github.com/piyushartist01)
 
-> Made with ❤️ for Travel Lovers 🌍
+> Made with FontAwesome and Vanilla JS for Travel Lovers
