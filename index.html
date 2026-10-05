@@ -8,6 +8,7 @@
     <title>TravelGo - Home</title>
 
     <!-- CSS -->
+    <link rel="stylesheet" href="global.css">
     <link rel="stylesheet" href="index.css">
 
     <!-- Font Awesome -->
@@ -22,7 +23,7 @@
 
         <!-- NAVBAR -->
 
-        <nav>
+        <nav class="dynamic-island">
 
             <!-- Logo -->
             <h2>
@@ -30,21 +31,9 @@
                 TravelGo
             </h2>
 
-            <!-- Search -->
-            <div class="nav-search">
-                <input
-                    type="text"
-                    id="searchInput"
-                    placeholder="Search destination..."
-                >
-                <button onclick="searchDestination()">
-                    Search
-                </button>
-            </div>
-
             <!-- Navigation Links -->
             <div class="nav-links" id="navLinks">
-                <a href="index.html">Home</a>
+                <a href="index.html" class="active">Home</a>
                 <a href="destination.html">Destinations</a>
                 <a href="package.html">Packages</a>
                 <a href="wishlist.html">Wishlist</a>
@@ -77,6 +66,18 @@
             <div class="hero-content">
                 <h1>Explore The World</h1>
                 <p>Discover beautiful places and exciting adventures.</p>
+
+                <!-- Search -->
+                <div class="hero-search">
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Search your dream destination..."
+                    >
+                    <button onclick="searchDestination()">
+                        <i class="fa-solid fa-magnifying-glass"></i> Search
+                    </button>
+                </div>
             </div>
 
         </section>
