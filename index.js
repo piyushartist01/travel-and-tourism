@@ -3,12 +3,20 @@
 ====================================== */
 
 /* ---- TOAST NOTIFICATION ---- */
+/* ---- TOAST NOTIFICATION ---- */
 function showToast(message, type) {
     let toast = document.createElement("div");
-    toast.className = "toast" + (type === "remove" ? " remove" : "");
-    toast.textContent = message;
+    toast.className = "toast" + (type === "remove" ? " remove-type" : "");
+    toast.innerHTML = (type === "remove" ? "⚠️ " : "✅ ") + message;
     document.body.appendChild(toast);
-    setTimeout(function () { toast.remove(); }, 2500);
+    
+    // trigger animation
+    setTimeout(() => toast.classList.add("show"), 10);
+
+    setTimeout(function () {
+        toast.classList.remove("show");
+        setTimeout(() => toast.remove(), 300);
+    }, 2500);
 }
 
 

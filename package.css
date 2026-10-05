@@ -42,35 +42,6 @@ body {
     font-size: 20px;
     z-index: 1;
 }
-.package-page nav {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: transparent;
-    box-shadow: none;
-    z-index: 10;
-    display: flex;
-    justify-content: space-between;
-    align-items: center; 
-    padding: 20px 5%;
-    box-sizing: border-box;
-}
-
-.package-page nav h2,
-.package-page nav a {
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: 600;
-    transition: color 0.3s ease;
-    margin: 0;
-    padding: 5px;
-    font-size: 20px;
-}
-.package-page nav a:hover {
-    color: #ffb52e;
-}
 .package-hero::after {
     content: "";
     position: absolute;
@@ -163,55 +134,7 @@ body {
     padding: 0;
 }
 
-/* ---- TOAST ---- */
-.toast {
-    position: fixed;
-    top: 80px;
-    right: 20px;
-    background: white;
-    color: #333;
-    padding: 13px 18px;
-    border-radius: 12px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-    border-left: 5px solid #28a745;
-    z-index: 99999;
-    font-size: 14px;
-    font-weight: 500;
-    max-width: 280px;
-    animation: slideInToast 0.35s ease, fadeOutToast 0.4s ease 2s both;
-}
-.toast.remove { border-left-color: #dc3545; }
 
-@keyframes slideInToast {
-    from { opacity: 0; transform: translateX(40px); }
-    to   { opacity: 1; transform: translateX(0); }
-}
-@keyframes fadeOutToast {
-    from { opacity: 1; }
-    to   { opacity: 0; transform: translateX(20px); }
-}
-
-/* ---- HAMBURGER ---- */
-.hamburger {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 6px;
-}
-.hamburger span {
-    display: block;
-    width: 25px;
-    height: 3px;
-    background: white;
-    border-radius: 3px;
-    transition: 0.35s;
-}
-.hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-.hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-.hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 .trip-box {
     width: 350px;
     background: rgba(30, 45, 60, 0.75);
@@ -439,41 +362,7 @@ body {
     box-shadow: 0 6px 18px rgba(10, 102, 194, 0.35);
 }
 @media (max-width: 768px) {
-    .hamburger { display: flex; }
 
-    .package-page nav .nav-links,
-    .nav-links {
-        display: none;
-        position: fixed;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        flex-direction: column;
-        background: rgba(10, 22, 33, 0.97);
-        backdrop-filter: blur(15px);
-        padding: 15px 20px;
-        gap: 0;
-        z-index: 999;
-    }
-
-    .nav-links.open {
-        display: flex;
-        animation: slideDown 0.3s ease;
-    }
-
-    .nav-links a {
-        padding: 13px 0;
-        border-bottom: 1px solid rgba(255,255,255,0.08);
-        font-size: 16px;
-        color: white !important;
-    }
-
-    .nav-links a:last-child { border-bottom: none; }
-
-    @keyframes slideDown {
-        from { opacity: 0; transform: translateY(-8px); }
-        to   { opacity: 1; transform: translateY(0); }
-    }
 
     .card, .card:nth-child(even) {
         flex-direction: column;

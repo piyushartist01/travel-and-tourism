@@ -39,91 +39,6 @@ body {
 }
 
 
-/* =========================
-   NAVBAR
-========================= */
-
-nav {
-    background: transparent;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    padding: 20px 50px;
-}
-
-nav h2 {
-    font-size: 26px;
-    color: white;
-}
-
-.nav-links {
-    display: flex;
-    gap: 25px;
-}
-
-.nav-links a {
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-}
-
-.nav-links a:hover {
-    color: #ffd166;
-}
-
-/* ---- HAMBURGER ---- */
-.hamburger {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 6px;
-}
-
-.hamburger span {
-    display: block;
-    width: 25px;
-    height: 3px;
-    background: white;
-    border-radius: 3px;
-    transition: 0.35s;
-}
-
-.hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-.hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-.hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-
-/* ---- TOAST ---- */
-.toast {
-    position: fixed;
-    top: 80px;
-    right: 20px;
-    background: white;
-    color: #333;
-    padding: 13px 18px;
-    border-radius: 12px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-    border-left: 5px solid #28a745;
-    z-index: 99999;
-    font-size: 14px;
-    font-weight: 500;
-    max-width: 280px;
-    animation: slideInToast 0.35s ease, fadeOutToast 0.4s ease 2s both;
-}
-.toast.remove { border-left-color: #dc3545; }
-
-@keyframes slideInToast {
-    from { opacity: 0; transform: translateX(40px); }
-    to   { opacity: 1; transform: translateX(0); }
-}
-@keyframes fadeOutToast {
-    from { opacity: 1; }
-    to   { opacity: 0; transform: translateX(20px); }
-}
 
 
 /* =========================
@@ -398,44 +313,7 @@ footer {
 
 @media (max-width: 768px) {
 
-    .hamburger { display: flex; }
 
-    .nav-links {
-        display: none;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        flex-direction: column;
-        background: rgba(5, 20, 35, 0.97);
-        backdrop-filter: blur(15px);
-        padding: 15px 25px;
-        gap: 0;
-        z-index: 99;
-    }
-
-    .nav-links.open {
-        display: flex;
-        animation: slideDown 0.3s ease;
-    }
-
-    .nav-links a {
-        padding: 13px 0;
-        border-bottom: 1px solid rgba(255,255,255,0.1);
-        font-size: 16px;
-    }
-
-    .nav-links a:last-child { border-bottom: none; }
-
-    @keyframes slideDown {
-        from { opacity: 0; transform: translateY(-8px); }
-        to   { opacity: 1; transform: translateY(0); }
-    }
-
-    nav {
-        padding: 18px 20px;
-        position: relative;
-    }
 
     .page-title {
         padding-top: 60px;
