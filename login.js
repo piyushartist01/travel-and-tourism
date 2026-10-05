@@ -1,71 +1,26 @@
-function editProfile() {
-    alert("Edit Profile feature will be added.");
-}
+/* ============================================
+   LOGIN.JS — hamburger setup for profile page
+   All other functions (loginUser, signupUser,
+   showSignup, editProfile, changePassword,
+   openWishlist, openBookings, displayProfileWishlist)
+   are defined in index.js which loads first.
+============================================ */
 
-function changePassword() {
-    alert("Change Password feature will be added.");
-}
+/* Hamburger menu setup */
+(function setupHamburger() {
+    let hamburger = document.getElementById("hamburger");
+    let navLinks  = document.getElementById("navLinks");
+    if (!hamburger || !navLinks) return;
 
-function openWishlist() {
-    window.location.href = "wishlist.html";
-}
-
-function openBookings() {
-    alert("No bookings yet.");
-}
-function displayProfileWishlist() {
-
-    let container = document.getElementById("profileWishlist");
-
-    if (!container) {
-        return;
-    }
-
-    let wishlist = localStorage.getItem("wishlist");
-
-    if (wishlist) {
-        wishlist = wishlist.split(",");
-    } else {
-        wishlist = [];
-    }
-
-    container.innerHTML = "";
-
-    if (wishlist.length == 0) {
-
-        container.innerHTML = "<p>No saved destinations yet.</p>";
-        return;
-    }
-
-    wishlist.forEach(function(destination) {
-
-        let item = document.createElement("div");
-
-        item.className = "profile-wishlist-item";
-
-        item.innerText = "❤️ " + destination;
-
-        container.appendChild(item);
-
+    hamburger.addEventListener("click", function () {
+        hamburger.classList.toggle("open");
+        navLinks.classList.toggle("open");
     });
-}
-function displayProfileWishlistCount() {
-    let count = document.getElementById("profileWishlistCount");
 
-    if (!count) {
-        return;
-    }
-
-    let wishlist = localStorage.getItem("wishlist");
-
-    if (wishlist) {
-        wishlist = wishlist.split(",");
-        count.innerText = wishlist.length;
-    } else {
-        count.innerText = 0;
-    }
-}
-
-displayProfileWishlistCount();
-
-displayProfileWishlist();
+    navLinks.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", function () {
+            hamburger.classList.remove("open");
+            navLinks.classList.remove("open");
+        });
+    });
+})();

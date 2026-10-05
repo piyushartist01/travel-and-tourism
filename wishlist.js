@@ -1,15 +1,27 @@
-// Search destination
+/* ============================================
+   WISHLIST.JS — Hamburger setup for wishlist page
+   All display/search/remove logic is in index.js
+============================================ */
 
-function searchDestination() {
+/* Hamburger menu setup */
+(function setupHamburger() {
+    let hamburger = document.getElementById("hamburger");
+    let navLinks  = document.getElementById("navLinks");
+    if (!hamburger || !navLinks) return;
 
-    let search = document.getElementById("searchInput").value;
+    hamburger.addEventListener("click", function () {
+        hamburger.classList.toggle("open");
+        navLinks.classList.toggle("open");
+    });
 
-    if (search == "") {
-        alert("Please enter a destination");
-    } else {
-        alert("Searching for " + search);
-    }
-}
+    navLinks.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", function () {
+            hamburger.classList.remove("open");
+            navLinks.classList.remove("open");
+        });
+    });
+})();
+
 
 
 // Add destination to wishlist

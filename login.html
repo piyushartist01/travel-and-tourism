@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Your TravelGo profile. Login, signup and manage your travel wishlist.">
     <title>Profile - TravelGo</title>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="login.css">
 </head>
@@ -12,131 +13,124 @@
 <body>
 
     <nav>
-        <h2>TravelGo</h2>
+        <h2><i class="fa-solid fa-plane" style="color:#ffb52e"></i> TravelGo</h2>
 
-        <div class="nav-links">
+        <div class="nav-links" id="navLinks">
             <a href="index.html">Home</a>
             <a href="destination.html">Destinations</a>
             <a href="package.html">Packages</a>
             <a href="wishlist.html">Wishlist</a>
             <a href="login.html">Profile</a>
         </div>
+
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </nav>
+
+    <!-- Profile Header -->
     <section class="profile-header">
+        <div class="profile-icon">👤</div>
+        <h1>Welcome, Traveller!</h1>
+        <p>Login or sign up to access your profile.</p>
+        <span>✈️ Travel Enthusiast</span>
+    </section>
 
-    <div class="profile-icon">
-        👤
-    </div>
+    <!-- Travel Stats -->
+    <section class="travel-stats">
 
-    <h1>Welcome, Tarushi!</h1>
+        <div class="stat-card">
+            <div>❤️</div>
+            <h2 id="profileWishlistCount">0</h2>
+            <p>Wishlist</p>
+        </div>
 
-    <p>tarushi@example.com</p>
+        <div class="stat-card">
+            <div>🧳</div>
+            <h2>0</h2>
+            <p>Bookings</p>
+        </div>
 
-    <span>✈️ Travel Enthusiast</span>
+        <div class="stat-card">
+            <div>🌍</div>
+            <h2>0</h2>
+            <p>Destinations</p>
+        </div>
 
-</section>
-<section class="travel-stats">
+    </section>
 
-    <div class="stat-card">
-        <div>❤️</div>
-        <h2 id="profileWishlistCount">0</h2>
-        <p>Wishlist</p>
-    </div>
+    <!-- My Account -->
+    <section class="account-section">
 
-    <div class="stat-card">
-        <div>🧳</div>
-        <h2>0</h2>
-        <p>Bookings</p>
-    </div>
+        <h2>My Account</h2>
 
-    <div class="stat-card">
-        <div>🌍</div>
-        <h2>0</h2>
-        <p>Destinations</p>
-    </div>
+        <section class="profile-wishlist">
+            <h2>❤️ My Wishlist</h2>
+            <div id="profileWishlist">
+                <p>No saved destinations yet.</p>
+            </div>
+        </section>
 
-</section>
-<section class="account-section">
+        <div class="account-options">
 
-    <h2>My Account</h2>
-    <section class="profile-wishlist">
+            <button onclick="editProfile()">
+                ✏️ Edit Profile
+            </button>
 
-    <h2>❤️ My Wishlist</h2>
+            <button onclick="changePassword()">
+                🔐 Change Password
+            </button>
 
-    <div id="profileWishlist">
-        <p>No saved destinations yet.</p>
-    </div>
+            <button onclick="openWishlist()">
+                ❤️ My Wishlist
+            </button>
 
-</section>
+            <button onclick="openBookings()">
+                🧳 My Bookings
+            </button>
 
-    <div class="account-options">
+        </div>
 
-        <button onclick="editProfile()">
-            ✏️ Edit Profile
-        </button>
+    </section>
 
-        <button onclick="changePassword()">
-            🔐 Change Password
-        </button>
-
-        <button onclick="openWishlist()">
-            ❤️ My Wishlist
-        </button>
-
-        <button onclick="openBookings()">
-            🧳 My Bookings
-        </button>
-
-    </div>
-
-</section>
-
-
+    <!-- Login / Signup Forms -->
     <section class="login-section">
 
         <div class="login-card">
-
             <h1>Welcome Back!</h1>
             <p>Login to continue your journey.</p>
 
             <input type="email" id="loginEmail" placeholder="Enter Email">
-
             <input type="password" id="loginPassword" placeholder="Enter Password">
-
             <button onclick="loginUser()">Login</button>
 
             <p class="account-text">
                 Don't have an account?
                 <span onclick="showSignup()">Sign Up</span>
             </p>
-
         </div>
 
-
         <div class="login-card signup-card" id="signupBox">
-
             <h1>Create Account</h1>
             <p>Start your travel journey with us.</p>
 
             <input type="text" id="signupName" placeholder="Enter Name">
-
             <input type="email" id="signupEmail" placeholder="Enter Email">
-
             <input type="password" id="signupPassword" placeholder="Create Password">
-
             <button onclick="signupUser()">Sign Up</button>
-
         </div>
 
     </section>
 
-
     <footer>
-        <p>© 2026 TravelGo | Tour & Travel</p>
+        <p>© 2026 TravelGo | Tour &amp; Travel</p>
     </footer>
 
+    <!-- Load index.js (has all shared functions) then login.js -->
+    <script src="index.js"></script>
+    <script src="login.js"></script>
 
-    <script src="script.js"></script>
-      <script src="login.js"></script>
 </body>
 </html>

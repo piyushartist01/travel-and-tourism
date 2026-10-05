@@ -1,200 +1,140 @@
-// 1 code window section //
-window.addEventListener('scroll', function() {
-    const navbar = document.getElementById('navbar');
-    if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
+/* ============================================
+   DESTINATION.JS — Fixed routing + hamburger
+============================================ */
+
+/* ---- TOAST ---- */
+function showToast(message, type) {
+    let toast = document.createElement("div");
+    toast.className = "toast" + (type === "remove" ? " remove" : "");
+    toast.textContent = message;
+    document.body.appendChild(toast);
+    setTimeout(function () { toast.remove(); }, 2500);
+}
+
+
+/* ---- HAMBURGER ---- */
+const hamburger = document.getElementById("hamburger");
+const navLinks  = document.getElementById("navLinks");
+
+if (hamburger && navLinks) {
+    hamburger.addEventListener("click", function () {
+        hamburger.classList.toggle("open");
+        navLinks.classList.toggle("open");
+    });
+    navLinks.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", function () {
+            hamburger.classList.remove("open");
+            navLinks.classList.remove("open");
+        });
+    });
+}
+
+
+/* ---- SCROLL: navbar turns white ---- */
+window.addEventListener("scroll", function () {
+    const navbar = document.getElementById("navbar");
+    if (!navbar) return;
+    navbar.classList.toggle("scrolled", window.scrollY > 50);
 });
 
 
-//2 code for nav bar smotth transparent to white 
-window.addEventListener('scroll', function() {
-    const navbar = document.querySelector('nav');
-    
-    // Page 50px scroll hote hi white background apply ho jayega
-    if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
-});
+/* ---- WISHLIST HELPERS (JSON array) ---- */
+function getWishlist() {
+    try { return JSON.parse(localStorage.getItem("wishlist")) || []; }
+    catch (e) { return []; }
+}
+
+function saveWishlist(list) {
+    localStorage.setItem("wishlist", JSON.stringify(list));
+}
 
 
-// 3 code Add destination to wishlist
-function toggleWishlist(button, destination) {
-    if (window.event) window.event.stopPropagation();
+/* ---- TOGGLE WISHLIST ---- */
+function toggleWishlist(event, button, destination) {
+    event.stopPropagation(); // prevent card click routing
 
-    let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
-    let icon = button.querySelector('i');
-    
-    // Safety: Trim and lowercase checking
-    let cleanDestination = destination ? destination.trim() : "";
+    let wishlist = getWishlist();
+    let idx = wishlist.findIndex(d => d.toLowerCase() === destination.toLowerCase());
+    let icon = button.querySelector("i");
 
-    // Array me exact match check karein
-    let existingIndex = wishlist.findIndex(
-        item => item.toLowerCase() === cleanDestination.toLowerCase()
-    );
-
-    if (existingIndex === -1) {
-        // Condition: Wishlist me nahi hai -> ADD karein
-        wishlist.push(cleanDestination);
-        localStorage.setItem("wishlist", JSON.stringify(wishlist));
-
+    if (idx === -1) {
+        wishlist.push(destination);
+        saveWishlist(wishlist);
         if (icon) icon.className = "fa-solid fa-heart";
         button.classList.add("active");
-
-        alert(cleanDestination + " added to wishlist ❤️");
+        showToast(destination + " added to wishlist ❤️");
     } else {
-        // Condition: Wishlist me pehle se hai -> REMOVE karein
-        wishlist.splice(existingIndex, 1);
-        localStorage.setItem("wishlist", JSON.stringify(wishlist));
-
+        wishlist.splice(idx, 1);
+        saveWishlist(wishlist);
         if (icon) icon.className = "fa-regular fa-heart";
         button.classList.remove("active");
-
-        alert(cleanDestination + " removed from wishlist");
+        showToast(destination + " removed from wishlist", "remove");
     }
 }
 
 
-//  not useable for me 
+/* ---- SYNC WISHLIST BUTTONS on page load ---- */
+function syncWishlistButtons() {
+    let wishlist = getWishlist();
+    document.querySelectorAll(".card").forEach(function (card) {
+        let h3 = card.querySelector("h3");
+        if (!h3) return;
+        let name = h3.textContent.trim();
+        let btn  = card.querySelector(".wishlist-btn");
+        if (!btn) return;
+        let icon = btn.querySelector("i");
+
+        if (wishlist.some(d => d.toLowerCase() === name.toLowerCase())) {
+            if (icon) icon.className = "fa-solid fa-heart";
+            btn.classList.add("active");
+        }
+    });
+}
+syncWishlistButtons();
 
 
+/* ---- CARD CLICK → package.html ---- */
+document.querySelectorAll(".card").forEach(function (card) {
+    card.addEventListener("click", function (event) {
+        // Don't navigate if wishlist button was clicked
+        if (event.target.closest(".wishlist-btn")) return;
 
-// // Search destination
+        let place = card.getAttribute("data-place");
+        if (!place) {
+            let h3 = card.querySelector("h3");
+            if (h3) place = h3.textContent.trim().toLowerCase();
+        }
 
-// function searchDestination() {
-
-//     let search = document.getElementById("searchInput").value;
-
-//     if (search == "") {
-//         alert("Please enter a destination");
-//     } else {
-//         alert("Searching for " + search);
-//     }
-// }
-
-
-// Display wishlist
-
-// function displayWishlist() {
-
-//     let container = document.getElementById("wishlistContainer");
-
-//     if (!container) {
-//         return;
-//     }
-
-//     let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
-
-//     if (wishlist.length == 0) {
-
-//         container.innerHTML = "<p>Your wishlist is empty.</p>";
-
-//         return;
-//     }
-
-//     container.innerHTML = "";
-
-//     wishlist.forEach(function(destination) {
-
-//         let card = document.createElement("div");
-
-//         card.className = "card";
-
-//         card.innerHTML = `
-//             <h3>${destination}</h3>
-//             <p>This destination is saved in your wishlist.</p>
-//             <button onclick="removeWishlist('${destination}')">
-//                 Remove
-//             </button>
-//         `;
-
-//         container.appendChild(card);
-//     });
-// }
+        if (place) {
+            window.location.href = "package.html?place=" + encodeURIComponent(place);
+        }
+    });
+});
 
 
-// // Remove from wishlist
+/* ---- SEARCH: highlight cards based on URL param ---- */
+(function applySearchFilter() {
+    let params = new URLSearchParams(window.location.search);
+    let search = params.get("search");
+    if (!search) return;
 
-// function removeWishlist(destination) {
+    let cards = document.querySelectorAll(".card");
+    let found = false;
 
-//     let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+    cards.forEach(function (card) {
+        let h3 = card.querySelector("h3");
+        if (!h3) return;
+        if (h3.textContent.toLowerCase().includes(search.toLowerCase())) {
+            card.style.outline = "3px solid #ffb52e";
+            card.style.transform = "scale(1.03)";
+            if (!found) {
+                card.scrollIntoView({ behavior: "smooth", block: "center" });
+                found = true;
+            }
+        }
+    });
 
-//     wishlist = wishlist.filter(function(item) {
-//         return item !== destination;
-//     });
-
-//     localStorage.setItem(
-//         "wishlist",
-//         JSON.stringify(wishlist)
-//     );
-
-//     displayWishlist();
-// }
-
-
-// // Book package
-
-// function bookPackage(packageName) {
-
-//     alert(
-//         "You selected " + packageName + 
-//         ". Booking feature will be added later."
-//     );
-// }
-
-
-// // Logout
-
-// // function logout() {
-
-// //     alert("You have been logged out.");
-// // }
-
-
-// // Run wishlist function when page loads
-
-// displayWishlist();
-// function loginUser() {
-
-//     let email = document.getElementById("loginEmail").value;
-//     let password = document.getElementById("loginPassword").value;
-
-//     if (email == "" || password == "") {
-
-//         alert("Please enter email and password");
-
-//     } else {
-
-//         alert("Login successful!");
-
-//     }
-// }
-
-
-// function signupUser() {
-
-//     let name = document.getElementById("signupName").value;
-//     let email = document.getElementById("signupEmail").value;
-//     let password = document.getElementById("signupPassword").value;
-
-//     if (name == "" || email == "" || password == "") {
-
-//         alert("Please fill all fields");
-
-//     } else {
-
-//         alert("Account created successfully!");
-
-//     }
-// }
-
-
-// function showSignup() {
-
-//     document.getElementById("signupBox").style.display = "block";
-
-// }
+    if (!found) {
+        showToast('No destination found for "' + search + '"', "remove");
+    }
+})();

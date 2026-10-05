@@ -1,3 +1,66 @@
+/* ---- TOAST ---- */
+function showToast(message, type) {
+    let toast = document.createElement("div");
+    toast.className = "toast" + (type === "remove" ? " remove" : "");
+    toast.textContent = message;
+    document.body.appendChild(toast);
+    setTimeout(function () { toast.remove(); }, 2500);
+}
+
+/* ---- HAMBURGER ---- */
+(function setupHamburger() {
+    let hamburger = document.getElementById("hamburger");
+    let navLinks  = document.getElementById("navLinks");
+    if (!hamburger || !navLinks) return;
+    hamburger.addEventListener("click", function () {
+        hamburger.classList.toggle("open");
+        navLinks.classList.toggle("open");
+    });
+    navLinks.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", function () {
+            hamburger.classList.remove("open");
+            navLinks.classList.remove("open");
+        });
+    });
+})();
+
+/* ---- SELECTED PACKAGE ---- */
+let selectedPackageName = "";
+
+function selectPackage(event, packageName) {
+    event.preventDefault();
+    selectedPackageName = packageName;
+    let label = document.getElementById("selectedPackageLabel");
+    if (label) label.textContent = "✅ " + packageName;
+    showToast(packageName + " selected! Fill in details and click Book Now.");
+    // Scroll to booking box
+    let bookingBox = document.querySelector(".booking-box");
+    if (bookingBox) bookingBox.scrollIntoView({ behavior: "smooth", block: "center" });
+}
+
+/* ---- BOOK NOW ---- */
+function bookNow() {
+    let date       = document.getElementById("journeyDate").value;
+    let duration   = document.getElementById("duration").value;
+    let travellers = document.getElementById("travellers").value;
+
+    if (!date || !duration || !travellers) {
+        showToast("Please fill in date, duration and travellers first 📅", "remove");
+        return;
+    }
+
+    // Scroll to trip box
+    let trip = document.getElementById("trip");
+    if (trip) trip.scrollIntoView({ behavior: "smooth", block: "center" });
+
+    document.getElementById("tripDuration").textContent   = "📅 Date: " + date + " | Duration: " + duration;
+    document.getElementById("tripTravellers").textContent = "👥 Travellers: " + travellers;
+    document.getElementById("tripPackage").textContent    = selectedPackageName ? "🏷️ Package: " + selectedPackageName : "";
+    document.getElementById("tripInfo").textContent       = "Sure about your trip? Choose Yes or No";
+
+    showToast("Details saved! Confirm your trip below ✈️");
+}
+
 const destinations = {
 
     manali: {
@@ -229,16 +292,15 @@ if (window.location.pathname.includes("destination.html")) {
                 return;
             }
 
-            let heading = card.querySelector("h3");
-
-            if (!heading) {
-                return;
+            let place = card.getAttribute("data-place");
+            if (!place) {
+                let heading = card.querySelector("h3");
+                if (heading) place = heading.textContent.trim().toLowerCase();
             }
 
-            let place = heading.textContent.trim().toLowerCase();
-
-            window.location.href =
-                "p.html?place=" + encodeURIComponent(place);
+            if (place) {
+                window.location.href = "package.html?place=" + encodeURIComponent(place);
+            }
 
         });
 
@@ -249,7 +311,7 @@ if (window.location.pathname.includes("destination.html")) {
 
 /*PACKAGE PAGE*/
 
-if (window.location.pathname.includes("p.html")) {
+if (window.location.pathname.includes("package.html")) {
 
     let place = new URLSearchParams(window.location.search).get("place");
 
@@ -322,30 +384,43 @@ if (window.location.pathname.includes("p.html")) {
 
 }
 let yesBtn = document.getElementById("yesBtn");
+let noBtn  = document.getElementById("noBtn");
 
 if (yesBtn) {
     yesBtn.addEventListener("click", function () {
 
-        let date = document.getElementById("journeyDate").value;
-        let duration = document.getElementById("duration").value;
+        let date       = document.getElementById("journeyDate").value;
+        let duration   = document.getElementById("duration").value;
         let travellers = document.getElementById("travellers").value;
+        let packageName = document.querySelector(".package-hero h1") ?
+            document.querySelector(".package-hero h1").textContent : "";
 
         if (!date || !duration || !travellers) {
-            alert("Please select trip details.");
+            showToast("Please select trip details first!", "remove");
             return;
         }
 
-        let packageName = document.querySelector(".package-hero h1").textContent;
-
         document.getElementById("tripDuration").textContent =
-            "Date: " + date + " | Duration: " + duration;
+            "📅 Date: " + date + " | Duration: " + duration;
 
         document.getElementById("tripTravellers").textContent =
-            "Travellers: " + travellers;
+            "👥 Travellers: " + travellers;
 
         document.getElementById("tripPackage").textContent =
-            "Package: " + packageName;
+            "🌍 Destination: " + packageName;
 
-        alert("Your seat has been booked!");
+        document.getElementById("tripInfo").textContent = "✅ Booking confirmed! Have a great trip!";
+
+        showToast("🎉 Your seat has been booked for " + packageName + "!");
+    });
+}
+
+if (noBtn) {
+    noBtn.addEventListener("click", function () {
+        document.getElementById("tripInfo").textContent = "No worries! Explore more destinations.";
+        showToast("No problem! Keep exploring ✈️", "remove");
+        setTimeout(function () {
+            window.location.href = "destination.html";
+        }, 1500);
     });
 }

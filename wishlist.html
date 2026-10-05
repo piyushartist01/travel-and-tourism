@@ -1,128 +1,88 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <meta name="description" content="Your saved travel destinations on TravelGo. View and manage your wishlist.">
     <title>Wishlist - TravelGo</title>
-<link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="wishlist.css">
 </head>
 
 <body>
 
-    <!-- =========================
-         HERO SECTION
-         Navbar + Title + Search
-    ========================== -->
+    <!-- HERO SECTION: Navbar + Title + Search -->
 
     <header class="hero-section">
 
         <!-- Navigation Bar -->
-
         <nav>
+            <h2><i class="fa-solid fa-plane" style="color:#ffb52e"></i> TravelGo</h2>
 
-            <h2><i class="fa-solid fa-plane" style="color:rgba(212, 209, 14, 0.9)"></i>TravelGo</h2>
-
-            <div class="nav-links">
-
+            <div class="nav-links" id="navLinks">
                 <a href="index.html">Home</a>
-
                 <a href="destination.html">Destinations</a>
-
                 <a href="package.html">Packages</a>
-
                 <a href="wishlist.html">Wishlist</a>
-
                 <a href="login.html">Profile</a>
-
             </div>
 
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </nav>
 
-
         <!-- Wishlist Title -->
-
         <section class="page-title">
-
-            <h1>
-                My Wishlist ❤️
-                <span id="wishlistCount">0</span>
-            </h1>
-
+            <h1>My Wishlist ❤️ <span id="wishlistCount">0</span></h1>
             <p>Your saved destinations.</p>
-
         </section>
 
-
         <!-- Wishlist Search -->
-
         <div class="wishlist-search">
-
             <input
                 type="text"
                 id="wishlistSearch"
                 placeholder="Search your saved destinations..."
                 onkeyup="searchWishlist()"
             >
-
         </div>
 
     </header>
 
 
-    <!-- =========================
-         WISHLIST CONTENT
-    ========================== -->
+    <!-- WISHLIST CONTENT -->
 
     <section class="section">
 
         <div id="wishlistContainer">
-
-            <p id="emptyMessage">
-                Your wishlist is empty.
-            </p>
-
+            <p id="emptyMessage">Your wishlist is empty.</p>
         </div>
 
-
         <p class="wishpara">
-            Explore amazing destinations and save your favorites here.
+            Explore amazing destinations and save your favourites here.
         </p>
 
-
-        <button class="db">
-
-            <a href="destination.html">
-                Explore Destination
-            </a>
-
-        </button>
+        <a href="destination.html" class="db">
+            Explore Destinations
+        </a>
 
     </section>
 
 
-    <!-- =========================
-         FOOTER
-    ========================== -->
+    <!-- FOOTER -->
 
     <footer>
-
-        <p>
-            © 2026 TravelGo | Tour & Travel
-        </p>
-
+        <p>© 2026 TravelGo | Tour &amp; Travel</p>
     </footer>
 
-
     <!-- JavaScript -->
-
+    <script src="index.js"></script>
     <script src="wishlist.js"></script>
 
 </body>
 
 </html>
-```

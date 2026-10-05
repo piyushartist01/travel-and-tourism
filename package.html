@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Book travel packages with TravelGo. Choose dates, duration and travellers for your dream trip.">
     <title>Packages - TravelGo</title>
     <link rel="stylesheet" href="package.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -11,45 +12,34 @@
 
 <body class="package-page">
 
-    <nav>
-        <h2>TravelGo</h2>
+    <nav id="pkgNav">
+        <h2><i class="fa-solid fa-plane" style="color:#ffb52e"></i> TravelGo</h2>
 
-         <div class="nav-links">
+        <div class="nav-links" id="navLinks">
+            <a href="index.html">Home</a>
+            <a href="destination.html">Destinations</a>
+            <a href="package.html">Packages</a>
+            <a href="wishlist.html">Wishlist</a>
+            <a href="login.html">Profile</a>
+        </div>
 
-                <a href="index.html">
-                    Home
-                </a>
-
-                <a href="destination.html">
-                    Destinations
-                </a>
-
-                <a href="package.html">
-                    Packages
-                </a>
-
-                <a href="wishlist.html">
-                    Wishlist
-                </a>
-
-                <a href="login.html">
-                    Profile
-                </a>
-
-            </div>
-
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </nav>
 
     <section class="package-hero">
-        <img src="https://images.unsplash.com/photo-1606667544139-81e47935d769?w=1600&auto=format&fit=crop&q=80"
-            alt="Manali">
+        <img src="https://images.unsplash.com/photo-1606667544139-81e47935d769?w=1600&auto=format&fit=crop&q=80" alt="Destination hero">
         <h1>Manali</h1>
         <p class="location">
-            <i class="fa-solid fa-location-dot"></i>Himachal Pradesh, India
+            <i class="fa-solid fa-location-dot"></i> Himachal Pradesh, India
         </p>
         <p class="tagline">A peaceful escape in the hills</p>
     </section>
-    <!-- Search Container -->
+
+    <!-- Booking Box -->
     <div class="booking-box">
 
         <div class="booking-field">
@@ -94,14 +84,15 @@
             <span>🏷️</span>
             <div>
                 <small>Package</small>
-                <p>Select package</p>
+                <p id="selectedPackageLabel">Select a package below</p>
             </div>
         </div>
 
-        <button class="book-btn">Book Now</button>
+        <button class="book-btn" id="bookNowBtn" onclick="bookNow()">Book Now</button>
 
     </div>
-    <!--Cards Container -->
+
+    <!-- Cards Container -->
     <section class="cards-container">
 
         <!-- CARD 1 -->
@@ -111,59 +102,61 @@
             </div>
             <div class="card-content">
                 <h2>Cultural Majesty</h2>
-                <p>Learn about traditional heritage, stunning modern architecture, and beautiful cultural landmarks
-                    around the city.</p>
-                <a href="#" class="btn">Find Out More →</a>
+                <p>Learn about traditional heritage, stunning modern architecture, and beautiful cultural landmarks around the city.</p>
+                <a href="#" class="btn" onclick="selectPackage(event, 'Cultural Majesty')">Find Out More →</a>
             </div>
         </div>
 
         <!-- CARD 2 -->
         <div class="card">
             <div class="card-img">
-                <img src="https://www.honeymoonpackagesmanali.in/wp-content/uploads/2025/05/manali.jpg"
-                    alt="Solang Valley Manali">
+                <img src="https://images.unsplash.com/photo-1631889993959-41b4e9c6e3c5?w=600" alt="Solang Valley Manali">
             </div>
             <div class="card-content">
-                <h2>Life by the Ocean</h2>
-                <p>Explore the scenic beauty of Solang Valley and enjoy exciting activities surrounded by snow-covered
-                    mountains and beautiful landscapes.</p>
+                <h2>Life by the Hills</h2>
+                <p>Explore the scenic beauty of Solang Valley and enjoy exciting activities surrounded by snow-covered mountains and beautiful landscapes.</p>
+                <a href="#" class="btn" onclick="selectPackage(event, 'Life by the Hills')">Find Out More →</a>
             </div>
         </div>
 
         <!-- CARD 3 -->
         <div class="card">
             <div class="card-img">
-
-                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Hidimba_Devi_Temple_-_Manali_-_Himachal_Pradesh.jpg"
-                    alt="Hidimba Temple Manali">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Hidimba_Devi_Temple_-_Manali_-_Himachal_Pradesh.jpg" alt="Hidimba Temple Manali">
             </div>
             <div class="card-content">
                 <h2>Made for Fun</h2>
-                <p>Discover the ancient Hidimba Temple, surrounded by tall deodar trees, peaceful surroundings, and the
-                    unique culture of Manali.</p> <a href="#" class="btn">Find Out More →</a>
+                <p>Discover the ancient Hidimba Temple, surrounded by tall deodar trees, peaceful surroundings, and the unique culture of Manali.</p>
+                <a href="#" class="btn" onclick="selectPackage(event, 'Made for Fun')">Find Out More →</a>
             </div>
         </div>
+
     </section>
+
+    <!-- Trip Confirmation Box -->
     <div class="trip-box" id="trip">
         <h2>Ready to book your trip?</h2>
         <p id="tripInfo">Sure about your trip? Choose Yes or No</p>
 
         <div class="options">
-            <button id="yesBtn">Yes</b  utton>
-            <button id="noBtn">No</button>
+            <button id="yesBtn">Yes ✅</button>
+            <button id="noBtn">No ❌</button>
         </div>
+
         <p id="tripDuration"></p>
         <p id="tripTravellers"></p>
         <p id="tripPackage"></p>
         <p class="price">Starting from: ₹7,999</p>
-        <p>Best Time: October - March</p>
-
+        <p>Best Time: October – March</p>
     </div>
+
     <footer class="footer-banner">
         <div class="footer-content">
-            <h2>Looking for hotel offers in the city?</h2>
+            <h2>Looking for hotel offers?</h2>
             <p>Grab the best deals on family-friendly stays and local getaways to make the most of your trip.</p>
-            <button class="footer-btn" id="moreDetails">MORE DETAILS →</button>
+            <button class="footer-btn" id="moreDetails" onclick="window.location.href='destination.html'">
+                MORE DETAILS →
+            </button>
         </div>
     </footer>
 
