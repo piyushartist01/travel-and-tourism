@@ -45,7 +45,7 @@ function addWishlist(destination) {
             wishlist.join(",")
         );
 
-        showMessage(destination + " added to wishlist ❤️");
+        showMessage(destination + " added to wishlist");
 
     } else {
 
@@ -124,7 +124,7 @@ function displayWishlist() {
     if (wishlist.length == 0) {
 
         container.innerHTML = `
-            <div class="empty-heart">❤️</div>
+            <div class="empty-heart"><i class="fa-regular fa-heart"></i></div>
             <h3>No saved trips yet!</h3>
         `;
 

@@ -31,7 +31,7 @@ function selectPackage(event, packageName) {
     event.preventDefault();
     selectedPackageName = packageName;
     let label = document.getElementById("selectedPackageLabel");
-    if (label) label.textContent = "✅ " + packageName;
+    if (label) label.innerHTML = '<i class="fa-solid fa-check"></i> ' + packageName;
     showToast(packageName + " selected! Fill in details and click Book Now.");
     // Scroll to booking box
     let bookingBox = document.querySelector(".booking-box");
@@ -45,7 +45,7 @@ function bookNow() {
     let travellers = document.getElementById("travellers").value;
 
     if (!date || !duration || !travellers) {
-        showToast("Please fill in date, duration and travellers first 📅", "remove");
+        showToast("Please fill in date, duration and travellers first", "remove");
         return;
     }
 
@@ -53,12 +53,12 @@ function bookNow() {
     let trip = document.getElementById("trip");
     if (trip) trip.scrollIntoView({ behavior: "smooth", block: "center" });
 
-    document.getElementById("tripDuration").textContent   = "📅 Date: " + date + " | Duration: " + duration;
-    document.getElementById("tripTravellers").textContent = "👥 Travellers: " + travellers;
-    document.getElementById("tripPackage").textContent    = selectedPackageName ? "🏷️ Package: " + selectedPackageName : "";
+    document.getElementById("tripDuration").innerHTML   = '<i class="fa-regular fa-calendar"></i> Date: ' + date + ' | Duration: ' + duration;
+    document.getElementById("tripTravellers").innerHTML = '<i class="fa-solid fa-user-group"></i> Travellers: ' + travellers;
+    document.getElementById("tripPackage").innerHTML    = selectedPackageName ? '<i class="fa-solid fa-tag"></i> Package: ' + selectedPackageName : '';
     document.getElementById("tripInfo").textContent       = "Sure about your trip? Choose Yes or No";
 
-    showToast("Details saved! Confirm your trip below ✈️");
+    showToast("Details saved! Confirm your trip below");
 }
 
 const destinations = {
@@ -380,6 +380,9 @@ if (window.location.pathname.includes("package.html")) {
 
         }
 
+    } else {
+        // If no place is specified in URL, redirect to destinations page
+        window.location.href = "destination.html";
     }
 
 }
@@ -400,25 +403,25 @@ if (yesBtn) {
             return;
         }
 
-        document.getElementById("tripDuration").textContent =
-            "📅 Date: " + date + " | Duration: " + duration;
+        document.getElementById("tripDuration").innerHTML =
+            '<i class="fa-solid fa-calendar-days"></i> Date: ' + date + ' | Duration: ' + duration;
 
-        document.getElementById("tripTravellers").textContent =
-            "👥 Travellers: " + travellers;
+        document.getElementById("tripTravellers").innerHTML =
+            '<i class="fa-solid fa-user-group"></i> Travellers: ' + travellers;
 
-        document.getElementById("tripPackage").textContent =
-            "🌍 Destination: " + packageName;
+        document.getElementById("tripPackage").innerHTML =
+            '<i class="fa-solid fa-globe"></i> Destination: ' + packageName;
 
-        document.getElementById("tripInfo").textContent = "✅ Booking confirmed! Have a great trip!";
+        document.getElementById("tripInfo").innerHTML = '<i class="fa-solid fa-circle-check"></i> Booking confirmed! Have a great trip!';
 
-        showToast("🎉 Your seat has been booked for " + packageName + "!");
+        showToast("Your seat has been booked for " + packageName + "!");
     });
 }
 
 if (noBtn) {
     noBtn.addEventListener("click", function () {
         document.getElementById("tripInfo").textContent = "No worries! Explore more destinations.";
-        showToast("No problem! Keep exploring ✈️", "remove");
+        showToast("No problem! Keep exploring", "remove");
         setTimeout(function () {
             window.location.href = "destination.html";
         }, 1500);
