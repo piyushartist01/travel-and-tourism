@@ -1,0 +1,320 @@
+
+/* =========================
+   BASIC PAGE
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f9fc;
+    color: #333;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+nav {
+    background-color: #0b3d4f;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+}
+
+nav h2 {
+    color: white;
+    font-size: 26px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.nav-links a:hover {
+    color: #ffd166;
+}
+
+/* =========================
+   PROFILE HEADER
+========================= */
+
+.profile-header {
+    text-align: center;
+    background-color: white;
+    padding: 45px 20px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+.profile-icon {
+    font-size: 55px;
+    margin-bottom: 10px;
+}
+
+.profile-header h1 {
+    color: #0b3d4f;
+    margin-bottom: 8px;
+}
+
+.profile-header p {
+    color: #666;
+    margin-bottom: 12px;
+}
+
+.profile-header span {
+    background-color: #e8f3f7;
+    color: #0b3d4f;
+    padding: 7px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+/* =========================
+   TRAVEL STATS
+========================= */
+
+.travel-stats {
+    width: 90%;
+    max-width: 1000px;
+    margin: 35px auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.stat-card {
+    background-color: white;
+    text-align: center;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.stat-card div {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.stat-card h2 {
+    color: #0b3d4f;
+    font-size: 28px;
+}
+
+.stat-card p {
+    color: #666;
+    margin-top: 5px;
+}
+
+/* =========================
+   ACCOUNT SECTION
+========================= */
+
+.account-section {
+    width: 90%;
+    max-width: 1000px;
+    margin: 45px auto;
+}
+
+.account-section > h2 {
+    text-align: center;
+    color: #0b3d4f;
+    margin-bottom: 25px;
+}
+
+/* =========================
+   WISHLIST
+========================= */
+
+.profile-wishlist {
+    background-color: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 25px;
+}
+
+.profile-wishlist h2 {
+    color: #0b3d4f;
+    margin-bottom: 20px;
+}
+
+.profile-wishlist-item {
+    background-color: #f5f9fc;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    color: #0b3d4f;
+    font-weight: 600;
+}
+
+.profile-wishlist-item:hover {
+    background-color: #e8f3f7;
+}
+
+/* =========================
+   ACCOUNT OPTIONS
+========================= */
+
+.account-options {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.account-options button {
+    background-color: #0b3d4f;
+    color: white;
+    border: none;
+    padding: 13px 15px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.account-options button:hover {
+    background-color: #12617a;
+}
+
+/* =========================
+   LOGIN SECTION
+========================= */
+
+.login-section {
+    width: 90%;
+    max-width: 900px;
+    margin: 50px auto;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.login-card {
+    background-color: white;
+    width: 100%;
+    max-width: 400px;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.login-card h1 {
+    color: #0b3d4f;
+    margin-bottom: 10px;
+}
+
+.login-card > p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* INPUTS */
+
+.login-card input {
+    width: 100%;
+    padding: 13px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+}
+
+.login-card input:focus {
+    border-color: #0b3d4f;
+}
+
+/* LOGIN BUTTON */
+
+.login-card button {
+    width: 100%;
+    padding: 13px;
+    border: none;
+    border-radius: 25px;
+    background-color: #0b3d4f;
+    color: white;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.login-card button:hover {
+    background-color: #12617a;
+}
+
+.account-text {
+    margin-top: 18px;
+    font-size: 14px;
+}
+
+.account-text span {
+    color: #0b3d4f;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    margin-top: 60px;
+    background-color: #0b3d4f;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    nav {
+        padding: 18px 20px;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-links {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .travel-stats {
+        grid-template-columns: 1fr;
+        width: 92%;
+    }
+
+    .account-section {
+        width: 92%;
+    }
+
+    .account-options {
+        grid-template-columns: 1fr;
+    }
+
+    .login-section {
+        width: 92%;
+        flex-direction: column;
+        align-items: center;
+    }
+}

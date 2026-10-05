@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Packages - TravelGo</title>
+    <link rel="stylesheet" href="package.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body class="package-page">
+
+    <nav>
+        <h2>TravelGo</h2>
+
+         <div class="nav-links">
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="destination.html">
+                    Destinations
+                </a>
+
+                <a href="package.html">
+                    Packages
+                </a>
+
+                <a href="wishlist.html">
+                    Wishlist
+                </a>
+
+                <a href="login.html">
+                    Profile
+                </a>
+
+            </div>
+
+    </nav>
+
+    <section class="package-hero">
+        <img src="https://images.unsplash.com/photo-1606667544139-81e47935d769?w=1600&auto=format&fit=crop&q=80"
+            alt="Manali">
+        <h1>Manali</h1>
+        <p class="location">
+            <i class="fa-solid fa-location-dot"></i>Himachal Pradesh, India
+        </p>
+        <p class="tagline">A peaceful escape in the hills</p>
+    </section>
+    <!-- Search Container -->
+    <div class="booking-box">
+
+        <div class="booking-field">
+            <span>📅</span>
+            <div>
+                <small>Journey Date</small>
+                <input type="date" id="journeyDate">
+            </div>
+        </div>
+
+        <div class="booking-field">
+            <span>⏱</span>
+            <div>
+                <small>Duration</small>
+                <select id="duration">
+                    <option value="" disabled selected>Select Duration</option>
+                    <option>1 Day / 2 Nights</option>
+                    <option>2 Days / 3 Nights</option>
+                    <option>3 Days / 4 Nights</option>
+                    <option>4 Days / 5 Nights</option>
+                    <option>5 Days / 6 Nights</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="booking-field">
+            <span>👥</span>
+            <div>
+                <small>Travellers</small>
+                <select id="travellers">
+                    <option value="" disabled selected>Select Traveller</option>
+                    <option value="1">1 Traveller</option>
+                    <option value="2">2 Travellers</option>
+                    <option value="3">3 Travellers</option>
+                    <option value="4">4 Travellers</option>
+                    <option value="5">5+ Travellers</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="booking-field">
+            <span>🏷️</span>
+            <div>
+                <small>Package</small>
+                <p>Select package</p>
+            </div>
+        </div>
+
+        <button class="book-btn">Book Now</button>
+
+    </div>
+    <!--Cards Container -->
+    <section class="cards-container">
+
+        <!-- CARD 1 -->
+        <div class="card">
+            <div class="card-img">
+                <img src="https://images.unsplash.com/photo-1605649487212-47bdab064df7?w=600" alt="Manali Mountains">
+            </div>
+            <div class="card-content">
+                <h2>Cultural Majesty</h2>
+                <p>Learn about traditional heritage, stunning modern architecture, and beautiful cultural landmarks
+                    around the city.</p>
+                <a href="#" class="btn">Find Out More →</a>
+            </div>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="card">
+            <div class="card-img">
+                <img src="https://www.honeymoonpackagesmanali.in/wp-content/uploads/2025/05/manali.jpg"
+                    alt="Solang Valley Manali">
+            </div>
+            <div class="card-content">
+                <h2>Life by the Ocean</h2>
+                <p>Explore the scenic beauty of Solang Valley and enjoy exciting activities surrounded by snow-covered
+                    mountains and beautiful landscapes.</p>
+            </div>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="card">
+            <div class="card-img">
+
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Hidimba_Devi_Temple_-_Manali_-_Himachal_Pradesh.jpg"
+                    alt="Hidimba Temple Manali">
+            </div>
+            <div class="card-content">
+                <h2>Made for Fun</h2>
+                <p>Discover the ancient Hidimba Temple, surrounded by tall deodar trees, peaceful surroundings, and the
+                    unique culture of Manali.</p> <a href="#" class="btn">Find Out More →</a>
+            </div>
+        </div>
+    </section>
+    <div class="trip-box" id="trip">
+        <h2>Ready to book your trip?</h2>
+        <p id="tripInfo">Sure about your trip? Choose Yes or No</p>
+
+        <div class="options">
+            <button id="yesBtn">Yes</b  utton>
+            <button id="noBtn">No</button>
+        </div>
+        <p id="tripDuration"></p>
+        <p id="tripTravellers"></p>
+        <p id="tripPackage"></p>
+        <p class="price">Starting from: ₹7,999</p>
+        <p>Best Time: October - March</p>
+
+    </div>
+    <footer class="footer-banner">
+        <div class="footer-content">
+            <h2>Looking for hotel offers in the city?</h2>
+            <p>Grab the best deals on family-friendly stays and local getaways to make the most of your trip.</p>
+            <button class="footer-btn" id="moreDetails">MORE DETAILS →</button>
+        </div>
+    </footer>
+
+</body>
+<script src="package.js"></script>
+
+</html>

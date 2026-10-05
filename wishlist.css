@@ -1,0 +1,431 @@
+/* =========================
+   BASIC PAGE
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.hero-section nav a{
+    font-size: larger;
+    font-weight: 700;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f9fc;
+    color: #333;
+}
+
+
+/* =========================
+   HERO SECTION
+   Navbar + Title + Search
+========================= */
+
+.hero-section {
+    background-image: linear-gradient(
+        rgba(0, 0, 0, 0.35),
+        rgba(0, 0, 0, 0.35)
+    ), url("wishlist\ image.png");
+
+    background-size: cover;
+    background-position: center;
+
+    min-height: 500px;
+
+    color: white;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+nav {
+    background: transparent;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 20px 50px;
+}
+
+nav h2 {
+    font-size: 26px;
+    color: white;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.nav-links a:hover {
+    color: #ffd166;
+}
+
+
+/* =========================
+   PAGE TITLE
+========================= */
+
+.page-title {
+    text-align: center;
+    padding: 80px 20px 35px;
+}
+
+.page-title h1 {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.page-title span {
+    background-color: white;
+    color: #0b3d4f;
+
+    font-size: 18px;
+
+    padding: 6px 12px;
+    border-radius: 20px;
+}
+
+.page-title p {
+    font-size: 18px;
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+.wishlist-search {
+    text-align: center;
+    padding: 15px 20px 60px;
+}
+
+#wishlistSearch {
+    width: 60%;
+    max-width: 600px;
+
+    padding: 15px 22px;
+
+    border: none;
+    border-radius: 30px;
+
+    font-size: 16px;
+
+    outline: none;
+}
+
+#wishlistSearch:focus {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+}
+
+
+/* =========================
+   WISHLIST SECTION
+========================= */
+
+.section {
+    width: 90%;
+    max-width: 1100px;
+
+    margin: 45px auto;
+
+    text-align: center;
+}
+
+
+/* =========================
+   WISHLIST CONTAINER
+========================= */
+
+#wishlistContainer {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(240px, 1fr));
+
+    gap: 25px;
+
+    margin-top: 20px;
+}
+
+
+/* =========================
+   WISHLIST CARD
+========================= */
+
+/* .wishlist-card {
+    background-color: white;
+
+    padding: 25px;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 4px 15px rgba(0, 0, 0, 0.1);
+
+    transition: 0.3s;
+}
+
+.wishlist-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.wishlist-card h3 {
+    color: #0b3d4f;
+
+    margin-bottom: 15px;
+} */
+
+
+/* =========================
+   REMOVE BUTTON
+========================= */
+
+/* .wishlist-card button {
+    background-color: #e63946;
+
+    color: white;
+
+    border: none;
+
+    padding: 9px 18px;
+
+    border-radius: 20px;
+
+    cursor: pointer;
+}
+
+.wishlist-card button:hover {
+    background-color: #c92d3a;
+} */
+
+.card {
+    background-color: white;
+
+    padding: 25px;
+
+    border-radius: 15px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card h3 {
+    color: #0b3d4f;
+
+    margin-bottom: 15px;
+}
+
+.card p {
+    color: #666;
+
+    margin-bottom: 20px;
+}
+
+.card .remove-btn {
+    background-color: #e63946;
+
+    color: white;
+
+    border: none;
+
+    padding: 9px 18px;
+
+    border-radius: 20px;
+
+    cursor: pointer;
+}
+
+.card .remove-btn:hover {
+    background-color: #c92d3a;
+}
+
+/* =========================
+   EMPTY WISHLIST
+========================= */
+
+#emptyMessage {
+    width: 100%;
+
+    padding: 35px;
+
+    background-color: white;
+
+    border-radius: 15px;
+
+    color: #777;
+
+    font-size: 18px;
+
+    box-shadow:
+        0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================
+   BOTTOM MESSAGE
+========================= */
+
+.wishpara {
+    margin-top: 35px;
+
+    font-size: 17px;
+
+    color: #666;
+}
+
+
+/* =========================
+   EXPLORE BUTTON
+========================= */
+
+.db {
+    margin-top: 18px;
+
+    padding: 12px 25px;
+
+    border: none;
+
+    border-radius: 25px;
+
+    background-color: #0b3d4f;
+
+    cursor: pointer;
+}
+
+.db a {
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 16px;
+}
+
+.db:hover {
+    background-color: #12617a;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    margin-top: 60px;
+
+    background-color: #0b3d4f;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 20px;
+}
+
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+
+@media (max-width: 700px) {
+
+    nav {
+        padding: 18px 20px;
+
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+    .nav-links {
+        gap: 15px;
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+    }
+
+    .page-title {
+        padding-top: 60px;
+    }
+
+    .page-title h1 {
+        font-size: 30px;
+    }
+
+    #wishlistSearch {
+        width: 90%;
+    }
+
+    .section {
+        width: 92%;
+    }
+
+    #wishlistContainer {
+        grid-template-columns: 1fr;
+    }
+}
+/* Footer */
+
+footer {
+    position: relative;
+    height: 100px;
+
+    background-image: url("./footer-bg.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    color: white;
+    text-align: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 50px;
+}
+
+footer::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        135deg,
+        rgba(2, 39, 68, 0.97),
+        rgba(4, 88, 140, 0.95),
+        rgba(0, 140, 185, 0.92)
+    );
+}
+
+footer p {
+    position: relative;
+    z-index: 1;
+
+    color: #dff5ff;
+    font-size: 13px;
+    margin: 0;
+}

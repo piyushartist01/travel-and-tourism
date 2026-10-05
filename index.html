@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>TravelGo - Home</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="index.css">
+
+    <!-- Font Awesome -->
+    
+</head>
+
+
+<body>
+
+
+    <!-- hero section -->
+
+    <div class="hero-section">
+
+
+        <!-- NAVBAR -->
+
+        <nav>
+
+            <!-- Logo -->
+
+            <h2>
+                <i class="fa-solid fa-plane"></i>
+                TravelGo
+            </h2>
+
+
+            <!-- Search -->
+
+            <div class="nav-search">
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search destination..."
+                >
+
+                <button onclick="searchDestination()">
+                    Search
+                </button>
+
+            </div>
+
+
+            <!-- Navigation -->
+
+            <div class="nav-links">
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="destination.html">
+                    Destinations
+                </a>
+
+                <a href="package.html">
+                    Packages
+                </a>
+
+                <a href="wishlist.html">
+                    Wishlist
+                </a>
+
+                <a href="login.html">
+                    Profile
+                </a>
+
+            </div>
+
+        </nav>
+
+
+
+        <!-- HERO -->
+
+        <section class="hero">
+
+
+            <!-- Hero Images -->
+
+            <div class="hero-image">
+
+                <img
+                    src="./udaipur banner.png"
+                    alt="Beautiful Udaipur"
+                >
+
+                <img
+                    src="./jaipur copy.png"
+                    alt="Beautiful Jaipur"
+                >
+
+                <img
+                    src="./shimla banner.png"
+                    alt="Beautiful Shimla"
+                >
+
+                <img
+                    src="./banner copy.png"
+                    alt="Beautiful travel destination"
+                >
+
+            </div>
+
+
+            <!-- Hero Content -->
+
+            <div class="hero-content">
+
+                <h1>
+                    Explore The World
+                </h1>
+
+                <p>
+                    Discover beautiful places and exciting adventures.
+                </p>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+
+    
+         <!-- POPULAR DESTINATIONS -->
+
+
+    <section class="popular-section">
+
+        <h2>
+            Popular Destinations
+        </h2>
+
+
+        <!-- ALWAYS 2 x 2 -->
+
+        <div class="cards">
+
+
+            <!-- GOA -->
+
+            <div class="card">
+
+                <div class="card-image">
+
+                    <img
+                        class="place"
+                        src="./goa copy.png"
+                        alt="Beautiful Goa"
+                    >
+
+                </div>
+
+                <h3>
+                    Goa
+                </h3>
+
+                <p>
+                    Enjoy beaches, sunsets and adventure.
+                </p>
+
+                <button onclick="addWishlist('Goa')">
+                    ❤️ Wishlist
+                </button>
+
+            </div>
+
+
+
+            <!-- MADURAI -->
+
+            <div class="card">
+
+                <div class="card-image">
+
+                    <img
+                        class="place"
+                        src="./tamilnadu copy.png"
+                        alt="Madurai Tamil Nadu"
+                    >
+
+                </div>
+
+                <h3>
+                    Madurai
+                </h3>
+
+                <p>
+                    Vibrant culture, grand temples,
+                    and lush mountains.
+                </p>
+
+                <button onclick="addWishlist('Madurai')">
+                    ❤️ Wishlist
+                </button>
+
+            </div>
+
+
+
+            <!-- KOLKATA -->
+
+            <div class="card">
+
+                <div class="card-image">
+
+                    <img
+                        class="place"
+                        src="./kolkata copy.png"
+                        alt="Beautiful Kolkata"
+                    >
+
+                </div>
+
+                <h3>
+                    Kolkata
+                </h3>
+
+                <p>
+                    Historic architecture, trams,
+                    and delicious sweets.
+                </p>
+
+                <button onclick="addWishlist('Kolkata')">
+                    ❤️ Wishlist
+                </button>
+
+            </div>
+
+
+
+            <!-- AGRA -->
+
+            <div class="card">
+
+                <div class="card-image">
+
+                    <img
+                        class="place"
+                        src="./Agra copy.jpeg"
+                        alt="Taj Mahal Agra"
+                    >
+
+                </div>
+
+                <h3>
+                    Agra
+                </h3>
+
+                <p>
+                    Historic city famous for
+                    the beautiful Taj Mahal.
+                </p>
+
+                <button onclick="addWishlist('Agra')">
+                    ❤️ Wishlist
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- SEE MORE OUTSIDE GRID -->
+
+        <a
+            href="destination.html"
+            class="see-more-btn"
+        >
+            See More →
+        </a>
+
+    </section>
+
+
+
+    <!-- travel date section -->
+
+    <section class="travel-date-section">
+
+        <div class="calendar-box">
+
+            <h2>
+                Plan Your Trip ✈️
+            </h2>
+
+            <p>
+                Select your travel date
+            </p>
+
+            <label for="travelDate">
+                Travel Date
+            </label>
+
+            <input
+                type="date"
+                id="travelDate"
+            >
+
+            <button onclick="selectTravelDate()">
+                Continue
+            </button>
+
+            <p id="selectedDate"></p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
+
+    <footer class="travel-footer" >
+
+        <div class="footer-overlay">
+
+
+            <div class="footer-container">
+
+
+                <!-- ABOUT -->
+
+                <div class="footer-box footer-about">
+
+                    <h2>
+                        🌍 TravelGo
+                    </h2>
+
+                    <p>
+                        Discover beautiful destinations,
+                        exciting adventures and
+                        unforgettable journeys.
+                    </p>
+
+                    <div class="social-icons">
+
+                        <a href="#" aria-label="Facebook">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+
+                        <a href="#" aria-label="X">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </a>
+
+                        <a href="#" aria-label="Instagram">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+
+                        <a href="#" aria-label="YouTube">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- QUICK LINKS -->
+
+                <div class="footer-box">
+
+                    <h3>
+                        Quick Links
+                    </h3>
+
+                    <a href="index.html">
+                        Home
+                    </a>
+
+                    <a href="destination.html">
+                        Destinations
+                    </a>
+
+                    <a href="package.html">
+                        Packages
+                    </a>
+
+                    <a href="wishlist.html">
+                        Wishlist
+                    </a>
+
+                    <a href="login.html">
+                        Profile
+                    </a>
+
+                </div>
+
+
+
+                <!-- POPULAR PLACES -->
+
+                <div class="footer-box">
+
+                    <h3>
+                        Popular Places
+                    </h3>
+
+                    <a href="destination.html">
+                        🏖️ Goa
+                    </a>
+
+                    <a href="destination.html">
+                        🏰 Jaipur
+                    </a>
+
+                    <a href="destination.html">
+                        🌄 Shimla
+                    </a>
+
+                    <a href="destination.html">
+                        🕌 Agra
+                    </a>
+
+                    <a href="destination.html">
+                        🌆 Kolkata
+                    </a>
+
+                </div>
+
+
+
+                <!-- CONTACT -->
+
+                <div class="footer-box">
+
+                    <h3>
+                        Contact Us
+                    </h3>
+
+                    <p>
+                        📍 Jaipur, Rajasthan
+                    </p>
+
+                    <p>
+                        📧 travelgo@gmail.com
+                    </p>
+
+                    <p>
+                        📞 +91 98765 43210
+                    </p>
+
+                    <button class="footer-btn">
+                        Explore Now ✈️
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- FOOTER BOTTOM -->
+
+            <div class="footer-bottom">
+
+                <p>
+                    © 2026 TravelGo. All Rights Reserved.
+                </p>
+
+                <p>
+                    Made with ❤️ for Travel Lovers
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="index.js"></script>
+
+</body>
+
+</html>

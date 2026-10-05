@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Wishlist - TravelGo</title>
+<link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="wishlist.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         HERO SECTION
+         Navbar + Title + Search
+    ========================== -->
+
+    <header class="hero-section">
+
+        <!-- Navigation Bar -->
+
+        <nav>
+
+            <h2><i class="fa-solid fa-plane" style="color:rgba(212, 209, 14, 0.9)"></i>TravelGo</h2>
+
+            <div class="nav-links">
+
+                <a href="index.html">Home</a>
+
+                <a href="destination.html">Destinations</a>
+
+                <a href="package.html">Packages</a>
+
+                <a href="wishlist.html">Wishlist</a>
+
+                <a href="login.html">Profile</a>
+
+            </div>
+
+        </nav>
+
+
+        <!-- Wishlist Title -->
+
+        <section class="page-title">
+
+            <h1>
+                My Wishlist ❤️
+                <span id="wishlistCount">0</span>
+            </h1>
+
+            <p>Your saved destinations.</p>
+
+        </section>
+
+
+        <!-- Wishlist Search -->
+
+        <div class="wishlist-search">
+
+            <input
+                type="text"
+                id="wishlistSearch"
+                placeholder="Search your saved destinations..."
+                onkeyup="searchWishlist()"
+            >
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         WISHLIST CONTENT
+    ========================== -->
+
+    <section class="section">
+
+        <div id="wishlistContainer">
+
+            <p id="emptyMessage">
+                Your wishlist is empty.
+            </p>
+
+        </div>
+
+
+        <p class="wishpara">
+            Explore amazing destinations and save your favorites here.
+        </p>
+
+
+        <button class="db">
+
+            <a href="destination.html">
+                Explore Destination
+            </a>
+
+        </button>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <p>
+            © 2026 TravelGo | Tour & Travel
+        </p>
+
+    </footer>
+
+
+    <!-- JavaScript -->
+
+    <script src="wishlist.js"></script>
+
+</body>
+
+</html>
+```

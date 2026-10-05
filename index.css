@@ -1,0 +1,1664 @@
+/* =========================================
+   GLOBAL
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+
+    background: #f4fbff;
+
+    color: #17324d;
+
+    overflow-x: hidden;
+}
+
+img {
+    display: block;
+
+    max-width: 100%;
+}
+
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero-section {
+    position: relative;
+
+    width: 100%;
+
+    height: 680px;
+
+    overflow: hidden;
+}
+
+
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+.hero-section nav {
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 18px 5%;
+
+    z-index: 20;
+
+    background: rgba(3, 45, 78, 0.55);
+
+    backdrop-filter: blur(10px);
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+
+
+/* Logo */
+
+.hero-section nav h2 {
+
+    color: white;
+
+    font-size: 29px;
+
+    letter-spacing: 0.5px;
+
+    white-space: nowrap;
+}
+
+.hero-section nav h2 i {
+
+    color: #ffb52e;
+
+    margin-right: 7px;
+}
+
+
+
+/* =========================================
+   SEARCH
+========================================= */
+
+.nav-search {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+}
+
+.nav-search input {
+
+    width: 230px;
+
+    height: 42px;
+
+    padding: 0 16px;
+
+    border: none;
+
+    outline: none;
+
+    border-radius: 25px;
+
+    background: rgba(255, 255, 255, 0.96);
+
+    color: #17324d;
+
+    font-size: 14px;
+}
+
+.nav-search input::placeholder {
+
+    color: #7a8b99;
+}
+
+.nav-search button {
+
+    height: 42px;
+
+    padding: 0 20px;
+
+    border: none;
+
+    border-radius: 25px;
+
+    background: #ff9f1c;
+
+    color: white;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.nav-search button:hover {
+
+    background: #f57c00;
+
+    transform: translateY(-2px);
+}
+
+
+
+/* =========================================
+   NAVIGATION LINKS
+========================================= */
+
+.hero-section .nav-links {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 24px;
+}
+
+.hero-section .nav-links a {
+
+    position: relative;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+.hero-section .nav-links a:hover {
+
+    color: #ffb52e;
+}
+
+.hero-section .nav-links a::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: -7px;
+
+    width: 0;
+
+    height: 2px;
+
+    background: #ffb52e;
+
+    transform: translateX(-50%);
+
+    transition: 0.3s;
+}
+
+.hero-section .nav-links a:hover::after {
+
+    width: 100%;
+}
+
+
+
+/* =========================================
+   HERO CONTENT
+========================================= */
+
+.hero-section .hero {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 100%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    overflow: hidden;
+}
+
+
+
+/* Hero image slider */
+
+.hero-section .hero-image {
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    display: flex;
+
+    z-index: 0;
+
+    transition:
+        transform 0.9s ease-in-out;
+}
+
+.hero-section .hero-image img {
+
+    min-width: 100%;
+
+    width: 100%;
+
+    height: 100%;
+
+    flex-shrink: 0;
+
+    object-fit: cover;
+
+    object-position: center;
+}
+
+
+
+/* Dark overlay */
+
+.hero-section .hero::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(2, 32, 56, 0.50),
+            rgba(2, 32, 56, 0.15),
+            rgba(2, 32, 56, 0.45)
+        );
+
+    z-index: 1;
+}
+
+
+
+/* Hero text */
+
+.hero-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 90%;
+
+    max-width: 1000px;
+
+    padding: 35px;
+
+    margin-top: 40px;
+}
+
+.hero-content h1 {
+
+    color: white;
+
+    font-size: clamp(45px, 7vw, 82px);
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 20px;
+
+    text-shadow:
+        0 4px 15px rgba(0, 0, 0, 0.55);
+}
+
+.hero-content p {
+
+    color: white;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: clamp(19px, 3vw, 31px);
+
+    line-height: 1.5;
+
+    text-shadow:
+        0 3px 10px rgba(0, 0, 0, 0.6);
+}
+
+
+
+/* =========================================
+   POPULAR DESTINATIONS
+========================================= */
+
+.popular-section {
+
+    padding: 65px 5%;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            rgba(238, 249, 255, 0.72),
+            rgba(238, 249, 255, 0.90)
+        ),
+        url("./popular detinatin bg.png");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+}
+
+
+
+/* Heading */
+
+.popular-section h2 {
+
+    color: #063b66;
+
+    font-size: clamp(28px, 4vw, 40px);
+
+    margin-bottom: 12px;
+}
+
+
+
+/* Orange line */
+
+.popular-section h2::after {
+
+    content: "";
+
+    display: block;
+
+    width: 65px;
+
+    height: 4px;
+
+    margin: 12px auto 35px;
+
+    border-radius: 10px;
+
+    background: #ff9f1c;
+}
+
+
+
+/* =========================================
+   DESTINATION GRID
+========================================= */
+
+/*
+   IMPORTANT:
+
+   Always 2 columns.
+
+   Row 1:
+   Goa       Madurai
+
+   Row 2:
+   Kolkata   Agra
+*/
+
+.cards {
+
+    width: 100%;
+
+    max-width: 900px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 25px;
+
+    padding: 5px;
+}
+
+
+
+/* =========================================
+   CARD
+========================================= */
+
+.card {
+
+    width: 100%;
+
+    padding: 15px;
+
+    background:
+        rgba(255, 255, 255, 0.98);
+
+    border-radius: 18px;
+
+    border:
+        1px solid rgba(6, 59, 102, 0.08);
+
+    box-shadow:
+        0 8px 25px rgba(3, 55, 102, 0.13);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.card:hover {
+
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 18px 35px rgba(3, 55, 102, 0.22);
+}
+
+
+
+/* Card image */
+
+.card-image {
+
+    width: 100%;
+
+    height: 230px;
+
+    overflow: hidden;
+
+    border-radius: 13px;
+}
+
+.card-image .place {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.5s ease;
+}
+
+.card:hover .place {
+
+    transform: scale(1.08);
+}
+
+
+
+/* Card title */
+
+.card h3 {
+
+    color: #063b66;
+
+    font-size: 21px;
+
+    margin: 16px 0 9px;
+}
+
+
+
+/* Card description */
+
+.card p {
+
+    color: #60788d;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    min-height: 45px;
+
+    margin-bottom: 17px;
+}
+
+
+
+/* Card button */
+
+.card button {
+
+    padding: 10px 20px;
+
+    border: none;
+
+    border-radius: 25px;
+
+    background: #ff9f1c;
+
+    color: white;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.card button:hover {
+
+    background: #f57c00;
+
+    transform: scale(1.05);
+}
+
+
+
+/* =========================================
+   SEE MORE
+========================================= */
+
+.see-more-btn {
+
+    display: block;
+
+    width: fit-content;
+
+    margin:
+        30px auto 0;
+
+    padding: 13px 27px;
+
+    border-radius: 25px;
+
+    background: #063b66;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+.see-more-btn:hover {
+
+    background: #0878b9;
+
+    transform: translateY(-3px);
+}
+
+
+
+/* =========================================
+   TRAVEL DATE / CALENDAR
+========================================= */
+
+.travel-date-section {
+
+    padding: 60px 20px;
+
+    background: #f4fbff;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+.calendar-box {
+
+    width: 420px;
+
+    max-width: 100%;
+
+    padding: 30px;
+
+    background: white;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 10px 35px rgba(3, 55, 102, 0.15);
+
+    text-align: center;
+}
+
+.calendar-box h2 {
+
+    color: #063b66;
+
+    font-size: 30px;
+
+    margin-bottom: 8px;
+}
+
+.calendar-box > p {
+
+    color: #60788d;
+
+    margin-bottom: 22px;
+}
+
+.calendar-box label {
+
+    display: block;
+
+    text-align: left;
+
+    color: #063b66;
+
+    font-weight: bold;
+
+    margin-bottom: 8px;
+}
+
+.calendar-box input[type="date"] {
+
+    width: 100%;
+
+    height: 50px;
+
+    padding: 0 15px;
+
+    border:
+        1px solid #c9dce8;
+
+    border-radius: 10px;
+
+    outline: none;
+
+    font-size: 16px;
+
+    color: #17324d;
+
+    background: #f8fcff;
+
+    cursor: pointer;
+}
+
+.calendar-box input[type="date"]:focus {
+
+    border-color: #0878b9;
+
+    box-shadow:
+        0 0 0 3px rgba(8, 120, 185, 0.10);
+}
+
+.calendar-box button {
+
+    width: 100%;
+
+    margin-top: 18px;
+
+    padding: 13px;
+
+    border: none;
+
+    border-radius: 25px;
+
+    background: #ff9f1c;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.calendar-box button:hover {
+
+    background: #f57c00;
+
+    transform: translateY(-2px);
+}
+
+#selectedDate {
+
+    margin-top: 18px;
+
+    color: #063b66;
+
+    font-weight: bold;
+}
+
+
+
+
+.travel-footer {
+    height: 100px;
+
+    position: relative;
+
+    color: white;
+
+    background-image:
+        url("./footer-bg.png");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+}
+
+
+
+/* Footer overlay */
+
+.footer-overlay {
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(2, 39, 68, 0.97),
+            rgba(4, 88, 140, 0.95),
+            rgba(0, 140, 185, 0.92)
+        );
+
+    padding-top: 35px;
+}
+
+
+
+
+
+.footer-container {
+
+    width: 92%;
+
+    max-width: 1100px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        1.5fr 1fr 1fr 1.3fr;
+
+    gap: 25px;
+
+    padding-bottom: 30px;
+}
+
+
+
+/* Footer title */
+
+.footer-box h2 {
+
+    color: white;
+
+    font-size: 24px;
+
+    margin-bottom: 10px;
+}
+
+.footer-box h3 {
+
+    color: white;
+
+    font-size: 16px;
+
+    margin-bottom: 13px;
+}
+
+
+
+/* Orange line */
+
+.footer-box h3::after {
+
+    content: "";
+
+    display: block;
+
+    width: 32px;
+
+    height: 2px;
+
+    background: #ff9f1c;
+
+    border-radius: 10px;
+
+    margin-top: 5px;
+}
+
+
+
+/* Footer text */
+
+.footer-box p {
+
+    color: #e3f5ff;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+    margin-bottom: 7px;
+}
+
+
+
+/* Footer links */
+
+.footer-box a {
+
+    display: block;
+
+    color: #e3f5ff;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    margin-bottom: 7px;
+
+    transition: 0.3s;
+}
+
+.footer-box a:hover {
+
+    color: #ffb52e;
+
+    transform: translateX(4px);
+}
+
+
+
+
+.social-icons {
+
+    display: flex;
+
+    gap: 8px;
+
+    margin-top: 14px;
+}
+
+.social-icons a {
+
+    width: 32px;
+
+    height: 32px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 255, 255, 0.14);
+
+    color: white;
+
+    font-size: 13px;
+
+    transition: 0.3s;
+}
+
+.social-icons a:hover {
+
+    background: #ff9f1c;
+
+    transform: translateY(-3px);
+}
+
+
+
+.footer-btn {
+
+    margin-top: 8px;
+
+    padding: 9px 17px;
+
+    border: none;
+
+    border-radius: 25px;
+
+    background: #ff9f1c;
+
+    color: white;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.footer-btn:hover {
+
+    background: #f57c00;
+
+    transform: translateY(-2px);
+}
+
+
+
+.footer-bottom {
+
+    width: 92%;
+
+    max-width: 1100px;
+
+    margin: auto;
+
+    padding: 12px 0;
+
+    border-top:
+        1px solid rgba(255, 255, 255, 0.25);
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+.footer-bottom p {
+
+    margin: 0;
+
+    color: #dff5ff;
+
+    font-size: 11px;
+}
+
+
+
+
+@media (max-width: 1100px) {
+
+    .hero-section nav {
+
+        padding:
+            16px 3%;
+    }
+
+    .hero-section .nav-links {
+
+        gap: 15px;
+    }
+
+    .hero-section .nav-links a {
+
+        font-size: 14px;
+    }
+
+    .nav-search input {
+
+        width: 180px;
+    }
+
+
+    /* Footer becomes 2 x 2 */
+
+    .footer-container {
+
+        grid-template-columns:
+            1fr 1fr;
+
+        gap: 25px;
+
+        text-align: center;
+    }
+
+    .footer-box h3::after {
+
+        margin-left: auto;
+
+        margin-right: auto;
+    }
+
+    .social-icons {
+
+        justify-content: center;
+    }
+
+    .footer-box:first-child {
+
+        grid-column: 1 / -1;
+    }
+}
+
+
+
+
+@media (max-width: 850px) {
+
+    .hero-section {
+
+        height: 680px;
+    }
+
+
+    /* Navbar */
+
+    .hero-section nav {
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+        gap: 12px;
+    }
+
+    .hero-section nav h2 {
+
+        width: 100%;
+
+        text-align: center;
+    }
+
+    .nav-search {
+
+        order: 2;
+    }
+
+    .hero-section .nav-links {
+
+        order: 3;
+
+        width: 100%;
+
+        justify-content: center;
+
+        flex-wrap: wrap;
+    }
+
+    .hero-content {
+
+        margin-top: 150px;
+    }
+
+
+    /* Destination cards remain 2 x 2 */
+
+    .cards {
+
+        max-width: 700px;
+
+        gap: 20px;
+    }
+
+    .card-image {
+
+        height: 210px;
+    }
+
+
+    /* Compact footer */
+
+    .footer-overlay {
+
+        padding-top: 25px;
+    }
+
+    .footer-container {
+
+        gap: 20px;
+
+        padding-bottom: 20px;
+    }
+}
+
+
+
+
+@media (max-width: 600px) {
+
+    .hero-section {
+
+        height: 720px;
+    }
+
+
+    /* Navbar */
+
+    .hero-section nav {
+
+        padding: 14px 12px;
+
+        gap: 10px;
+    }
+
+    .hero-section nav h2 {
+
+        font-size: 24px;
+    }
+
+
+    /* Search */
+
+    .nav-search {
+
+        width: 100%;
+
+        justify-content: center;
+    }
+
+    .nav-search input {
+
+        width: 65%;
+
+        height: 40px;
+    }
+
+    .nav-search button {
+
+        height: 40px;
+
+        padding: 0 15px;
+
+        font-size: 13px;
+    }
+
+
+    /* Navigation */
+
+    .hero-section .nav-links {
+
+        gap: 8px 13px;
+
+        flex-wrap: wrap;
+    }
+
+    .hero-section .nav-links a {
+
+        font-size: 12px;
+    }
+
+
+    /* Hero */
+
+    .hero-content {
+
+        width: 95%;
+
+        margin-top: 170px;
+
+        padding: 10px;
+    }
+
+    .hero-content h1 {
+
+        font-size: 40px;
+
+        line-height: 1.15;
+    }
+
+    .hero-content p {
+
+        font-size: 18px;
+    }
+
+
+
+    
+    .popular-section {
+
+        padding:
+            40px 12px;
+    }
+
+    .popular-section h2 {
+
+        font-size: 27px;
+    }
+
+    .popular-section h2::after {
+
+        margin-bottom: 22px;
+    }
+
+
+    
+    .cards {
+
+        width: 100%;
+
+        max-width: 500px;
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 12px;
+
+        padding: 0;
+    }
+
+
+    /* Smaller cards */
+
+    .card {
+
+        padding: 8px;
+
+        border-radius: 13px;
+    }
+
+
+    /* Smaller image */
+
+    .card-image {
+
+        height: 140px;
+
+        border-radius: 9px;
+    }
+
+
+    /* Card heading */
+
+    .card h3 {
+
+        font-size: 16px;
+
+        margin:
+            9px 0 5px;
+    }
+
+
+    /* Card text */
+
+    .card p {
+
+        font-size: 11px;
+
+        line-height: 1.4;
+
+        min-height: 48px;
+
+        margin-bottom: 8px;
+    }
+
+
+    /* Wishlist */
+
+    .card button {
+
+        padding: 7px 9px;
+
+        font-size: 10px;
+    }
+
+
+    /* See More */
+
+    .see-more-btn {
+
+        margin-top: 20px;
+
+        padding: 10px 21px;
+
+        font-size: 12px;
+    }
+
+
+
+    /* calender */
+    .travel-date-section {
+
+        padding:
+            40px 15px;
+    }
+
+    .calendar-box {
+
+        padding:
+            24px 18px;
+
+        border-radius: 16px;
+    }
+
+    .calendar-box h2 {
+
+        font-size: 25px;
+    }
+
+    .calendar-box > p {
+
+        font-size: 13px;
+    }
+
+    .calendar-box input[type="date"] {
+
+        height: 45px;
+
+        font-size: 14px;
+    }
+
+    .calendar-box button {
+
+        padding: 11px;
+
+        font-size: 14px;
+    }
+
+
+
+/* footer */
+    .footer-overlay {
+
+        padding-top: 22px;
+    }
+
+    .footer-container {
+
+        width: 92%;
+
+        grid-template-columns:
+            1fr 1fr;
+
+        gap: 18px 12px;
+
+        padding-bottom: 18px;
+
+        text-align: center;
+    }
+
+
+    /* About section full width */
+
+    .footer-about {
+
+        grid-column:
+            1 / -1;
+    }
+
+
+    /* Footer logo */
+
+    .footer-box h2 {
+
+        font-size: 20px;
+
+        margin-bottom: 6px;
+    }
+
+
+    /* Footer headings */
+
+    .footer-box h3 {
+
+        font-size: 14px;
+
+        margin-bottom: 8px;
+    }
+
+
+    /* Orange line */
+
+    .footer-box h3::after {
+
+        width: 25px;
+
+        height: 2px;
+
+        margin:
+            4px auto 0;
+    }
+
+
+    /* Footer paragraph */
+
+    .footer-box p {
+
+        font-size: 11px;
+
+        line-height: 1.4;
+
+        margin-bottom: 5px;
+    }
+
+
+    /* Links */
+
+    .footer-box a {
+
+        font-size: 11px;
+
+        margin-bottom: 5px;
+    }
+
+
+    /* Social icons */
+
+    .social-icons {
+
+        gap: 6px;
+
+        margin-top: 9px;
+
+        justify-content: center;
+    }
+
+    .social-icons a {
+
+        width: 28px;
+
+        height: 28px;
+
+        font-size: 11px;
+    }
+
+
+    /* Footer button */
+
+    .footer-btn {
+
+        margin-top: 5px;
+
+        padding: 7px 13px;
+
+        font-size: 10px;
+    }
+
+
+    /* Bottom */
+
+    .footer-bottom {
+
+        width: 92%;
+
+        flex-direction: column;
+
+        gap: 3px;
+
+        padding: 9px 0;
+
+        text-align: center;
+    }
+
+    .footer-bottom p {
+
+        font-size: 9px;
+    }
+}
+
+
+
+
+   /* SMALL MOBILE */
+
+
+@media (max-width: 400px) {
+
+    .hero-section {
+
+        height: 700px;
+    }
+
+    .hero-section nav h2 {
+
+        font-size: 22px;
+    }
+
+    .nav-search input {
+
+        width: 60%;
+    }
+
+    .nav-search button {
+
+        padding: 0 12px;
+
+        font-size: 12px;
+    }
+
+    .hero-content {
+
+        margin-top: 165px;
+    }
+
+    .hero-content h1 {
+
+        font-size: 32px;
+    }
+
+    .hero-content p {
+
+        font-size: 16px;
+    }
+
+
+    /* Cards remain 2 columns */
+
+    .cards {
+
+        gap: 9px;
+    }
+
+    .card {
+
+        padding: 7px;
+    }
+
+    .card-image {
+
+        height: 115px;
+    }
+
+    .card h3 {
+
+        font-size: 14px;
+    }
+
+    .card p {
+
+        font-size: 10px;
+
+        min-height: 44px;
+    }
+
+    .card button {
+
+        padding: 6px 7px;
+
+        font-size: 9px;
+    }
+}
+
+
+
+
+@media (max-width: 350px) {
+
+    .hero-section {
+
+        height: 690px;
+    }
+
+    .hero-section nav h2 {
+
+        font-size: 20px;
+    }
+
+    .hero-content h1 {
+
+        font-size: 28px;
+    }
+
+    .hero-content p {
+
+        font-size: 15px;
+    }
+
+    .nav-search input {
+
+        width: 55%;
+    }
+
+
+    .cards {
+
+        gap: 7px;
+    }
+
+    .card-image {
+
+        height: 105px;
+    }
+
+    .card h3 {
+
+        font-size: 13px;
+    }
+
+    .card p {
+
+        font-size: 9px;
+    }
+}
