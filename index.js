@@ -7,7 +7,7 @@
 function showToast(message, type) {
     let toast = document.createElement("div");
     toast.className = "toast" + (type === "remove" ? " remove-type" : "");
-    toast.innerHTML = (type === "remove" ? "⚠️ " : "✅ ") + message;
+    toast.innerHTML = (type === "remove" ? '<i class="fa-solid fa-circle-exclamation"></i> ' : '<i class="fa-solid fa-circle-check"></i> ') + message;
     document.body.appendChild(toast);
     
     // trigger animation
@@ -47,7 +47,7 @@ function searchDestination() {
     let val = search.value.trim().toLowerCase();
 
     if (val === "") {
-        showToast("Please enter a destination 🔍", "info");
+        showToast("Please enter a destination", "info");
         return;
     }
 
@@ -135,7 +135,7 @@ function addWishlist(destination) {
     if (!wishlist.map(d => d.toLowerCase()).includes(destination.toLowerCase())) {
         wishlist.push(destination);
         saveWishlist(wishlist);
-        showToast(destination + " added to wishlist ❤️");
+        showToast(destination + " added to wishlist");
     } else {
         showToast(destination + " is already in your wishlist", "info");
     }
@@ -152,13 +152,13 @@ function handleWishlistClick(event, destination, btn) {
         wishlist.push(destination);
         saveWishlist(wishlist);
         btn.classList.add("wishlisted");
-        btn.textContent = "✅ Wishlisted";
-        showToast(destination + " added to wishlist ❤️");
+        btn.innerHTML = '<i class="fa-solid fa-heart"></i>';
+        showToast(destination + " added to wishlist");
     } else {
         wishlist.splice(idx, 1);
         saveWishlist(wishlist);
         btn.classList.remove("wishlisted");
-        btn.textContent = "❤️ Wishlist";
+        btn.innerHTML = '<i class="fa-regular fa-heart"></i>';
         showToast(destination + " removed from wishlist", "remove");
     }
 }
@@ -172,7 +172,9 @@ function syncHomeButtons() {
         if (!btn) return;
         if (wishlist.some(d => d.toLowerCase() === dest.toLowerCase())) {
             btn.classList.add("wishlisted");
-            btn.textContent = "✅ Wishlisted";
+            btn.innerHTML = '<i class="fa-solid fa-heart"></i>';
+        } else {
+            btn.innerHTML = '<i class="fa-regular fa-heart"></i>';
         }
     });
 }
@@ -195,7 +197,7 @@ function selectTravelDate() {
     let travelDate = travelDateInput.value;
 
     if (travelDate === "") {
-        showToast("Please select your travel date 📅", "info");
+        showToast("Please select your travel date", "info");
         return;
     }
 
@@ -204,7 +206,7 @@ function selectTravelDate() {
     today.setHours(0, 0, 0, 0);
 
     if (selectedDate < today) {
-        showToast("Please select a future travel date 📅", "info");
+        showToast("Please select a future travel date", "info");
         return;
     }
 
@@ -214,8 +216,8 @@ function selectTravelDate() {
         year: "numeric"
     });
 
-    result.innerHTML = "✈️ Your travel date is <strong>" + formattedDate + "</strong>! Happy journey!";
-    showToast("Travel date saved! ✈️");
+    result.innerHTML = '<i class="fa-solid fa-plane"></i> Your travel date is <strong>' + formattedDate + '</strong>! Happy journey!';
+    showToast("Travel date saved!");
 }
 
 // Set minimum date to today
@@ -242,7 +244,7 @@ function displayWishlist() {
     if (wishlist.length === 0) {
         container.innerHTML = `
             <div style="text-align:center; padding: 40px 0;">
-                <div style="font-size:60px; margin-bottom:15px;">❤️</div>
+                <div style="font-size:60px; margin-bottom:15px; color:#ff5a5f;"><i class="fa-regular fa-heart"></i></div>
                 <h3 style="color:#063b66; margin-bottom:10px;">No saved trips yet!</h3>
                 <p style="color:#60788d;">Start exploring and save your favourites.</p>
             </div>
@@ -258,7 +260,7 @@ function displayWishlist() {
         card.innerHTML = `
             <h3>${destination}</h3>
             <p>Saved in your wishlist. Ready for your next adventure!</p>
-            <button class="remove-btn">🗑️ Remove</button>
+            <button class="remove-btn"><i class="fa-solid fa-trash"></i> Remove</button>
         `;
 
         card.querySelector(".remove-btn").addEventListener("click", function () {
@@ -296,7 +298,7 @@ function searchWishlist() {
 /* ---- PROFILE PAGE ---- */
 function editProfile() {
     let btn = document.querySelector('[onclick="editProfile()"]');
-    showToast("Edit Profile feature coming soon! 🛠️", "info");
+    showToast("Edit Profile feature coming soon!", "info");
     if (btn) {
         btn.style.opacity = "0.7";
         setTimeout(() => { btn.style.opacity = "1"; }, 500);
@@ -304,7 +306,7 @@ function editProfile() {
 }
 
 function changePassword() {
-    showToast("Change Password feature coming soon! 🔐", "info");
+    showToast("Change Password feature coming soon!", "info");
 }
 
 function openWishlist() {
@@ -312,7 +314,7 @@ function openWishlist() {
 }
 
 function openBookings() {
-    showToast("No bookings yet. Book a package to get started! 🧳", "info");
+    showToast("No bookings yet. Book a package to get started!", "info");
 }
 
 function displayProfileWishlist() {
@@ -332,7 +334,7 @@ function displayProfileWishlist() {
     wishlist.forEach(function (destination) {
         let item = document.createElement("div");
         item.className = "profile-wishlist-item";
-        item.textContent = "❤️ " + destination;
+        item.innerHTML = '<i class="fa-solid fa-heart" style="color:#ff5a5f"></i> ' + destination;
         container.appendChild(item);
     });
 }
@@ -348,7 +350,7 @@ function loginUser() {
     if (email.value.trim() === "" || password.value.trim() === "") {
         showToast("Please enter email and password", "info");
     } else {
-        showToast("Login successful! Welcome back ✈️");
+        showToast("Login successful! Welcome back");
         setTimeout(function () {
             window.location.href = "login.html";
         }, 1000);
@@ -364,7 +366,7 @@ function signupUser() {
     if (name.value.trim() === "" || email.value.trim() === "" || password.value.trim() === "") {
         showToast("Please fill all fields", "info");
     } else {
-        showToast("Account created successfully! 🎉");
+        showToast("Account created successfully!");
         setTimeout(function () {
             document.getElementById("signupBox").style.display = "none";
         }, 1200);

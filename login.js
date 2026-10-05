@@ -51,7 +51,7 @@ window.loginUser = function() {
         if(typeof showToast === "function") showToast("Please enter email and password", "info");
     } else {
         localStorage.setItem("isLoggedIn", "true");
-        if(typeof showToast === "function") showToast("Login successful! Welcome back ✈️");
+        if(typeof showToast === "function") showToast("Login successful! Welcome back");
         
         // Hide overlay
         document.getElementById("loginOverlay").style.display = "none";
@@ -85,7 +85,7 @@ window.signupUser = function() {
         if(typeof showToast === "function") showToast("Please fill all fields", "info");
     } else {
         localStorage.setItem("isLoggedIn", "true");
-        if(typeof showToast === "function") showToast("Account created successfully! 🎉");
+        if(typeof showToast === "function") showToast("Account created successfully!");
         
         // Hide overlay
         document.getElementById("loginOverlay").style.display = "none";

@@ -62,7 +62,7 @@ function toggleWishlist(event, button, destination) {
         saveWishlist(wishlist);
         if (icon) icon.className = "fa-solid fa-heart";
         button.classList.add("active");
-        showToast(destination + " added to wishlist ❤️");
+        showToast(destination + " added to wishlist");
     } else {
         wishlist.splice(idx, 1);
         saveWishlist(wishlist);
